@@ -55,52 +55,47 @@ const homepageExperience = [
     role: "CNC Machinist Intern",
     company: "Preci Manufacturing · Winooski, VT",
     summary: "Rotated through turning, 5-axis milling, and quality control in an aerospace manufacturing environment.",
-    sections: [
-      ["CNC setups", "Executed CNC setups, assembling tooling and workholding, and adjusting geometry for first-off inspection."],
-      ["Production", "Inspected parts and adjusted tool offsets during production to maintain tolerances as tight as ± 0.0001\"."],
-      ["Automation", "Supported implementation of automation, verifying workholding, part handling, and process repeatability."],
-      ["Quality control", "Performed QC inspections using GD&T and metrology equipment including CMMs, optical comparators, indicators and precision gaging; verified material/process certifications and traceability."],
-    ],
+    roles: [{ title: "CNC Machinist Intern", date: "May 2026 – Aug 2026", bullets: [
+      "Rotated through turning, 5-axis milling, and quality control in an aerospace manufacturing environment.",
+      "Executed CNC setups, assembling tooling and workholding, and adjusting geometry for first-off inspection.",
+      "Inspected parts and adjusted tool offsets during production to maintain tolerances as tight as ± 0.0001\".",
+      "Supported implementation of automation, verifying workholding, part handling, and process repeatability.",
+      "Performed QC inspections using GD&T and metrology equipment including CMMs, optical comparators, indicators and precision gaging; verified material/process certifications and traceability.",
+    ] }],
     media: placeholderMedia(["/media/experience/preci-1.jpg", "/media/experience/preci-2.jpg"]),
   },
   {
-    date: "Dec 2025 – Present",
-    role: "Operations Manager",
-    company: "UVM FabLab · Burlington, VT",
+    date: "Sep 2025 – Present",
+    role: "UVM FabLab",
+    company: "Burlington, VT",
     summary: "Lead lab operations, balancing hands-on fabrication with technical direction and final decision making.",
-    sections: [
-      ["Maintenance", "Manage preventative maintenance and SOP development across all lab equipment."],
-      ["Leadership", "Lead biweekly staff meetings to review lab performance, address issues, and implement changes."],
-      ["Troubleshooting", "Troubleshoot and repair 3D printers and laser cutters, resolving issues escalated by technicians."],
+    roles: [
+      { title: "Operations Manager", date: "Dec 2025 – Present", bullets: [
+        "Lead lab operations, balancing hands-on fabrication with technical direction and final decision making.",
+        "Manage preventative maintenance and SOP development across all lab equipment.",
+        "Lead biweekly staff meetings to review lab performance, address issues, and implement changes.",
+        "Troubleshoot and repair 3D printers and laser cutters, resolving issues escalated by technicians.",
+      ] },
+      { title: "Technician", date: "Sep 2025 – Dec 2025", bullets: [
+        "Contributed to 600+ fabrication tickets in one semester, operating FDM/SLA printers and laser cutters.",
+        "Advised students and researchers on CAD, DFM, material selection, and fabrication strategies.",
+      ] },
     ],
     media: fablabExperienceMedia,
   },
   {
-    date: "Sep 2025 – Dec 2025",
-    role: "Technician",
-    company: "UVM FabLab · Burlington, VT",
-    summary: "Contributed to 600+ fabrication tickets in one semester, operating FDM/SLA printers and laser cutters.",
-    sections: [
-      ["Technical advising", "Advised students and researchers on CAD, DFM, material selection, and fabrication strategies."],
-    ],
-    media: fablabExperienceMedia,
-  },
-  {
-    date: "Aug 2023 – Jun 2024",
-    role: "Gap-Year: VEX Robotics Team Coach",
-    company: "Thetford, VT",
-    summary: "Mentored students aged 12-18 in CAD, design process, safe fabrication, and competition strategy.",
-    sections: [["Role", "Mentored students aged 12-18 in CAD, design process, safe fabrication, and competition strategy."]],
-    media: roboticsExperienceMedia,
-  },
-  {
-    date: "Sep 2017 – Jun 2023",
-    role: "Team Member",
-    company: "VEX Robotics Team 4886-B · Various Locations, USA",
+    date: "Sep 2017 – Jun 2024",
+    role: "VEX Robotics",
+    company: "Team 4886-B · Various Locations, USA",
     summary: "Shared responsibility for robot design, fabrication, controls, and documentation on a two-person team.",
-    sections: [
-      ["Responsibilities", "Shared responsibility for robot design, fabrication, controls, and documentation on a two-person team."],
-      ["Competition record", "Four-time VEX World Championship competitor; 2023 NH/VT State Champion; recipient of three Design Awards and three Excellence Awards at the regional (NH/VT) level."],
+    roles: [
+      { title: "Gap-Year: VEX Robotics Team Coach", date: "Aug 2023 – Jun 2024", bullets: [
+        "Mentored students aged 12-18 in CAD, design process, safe fabrication, and competition strategy.",
+      ] },
+      { title: "VEX Robotics Team 4886-B", date: "Sep 2017 – Jun 2023", bullets: [
+        "Shared responsibility for robot design, fabrication, controls, and documentation on a two-person team.",
+        "Four-time VEX World Championship competitor; 2023 NH/VT State Champion; recipient of three Design Awards and three Excellence Awards at the regional (NH/VT) level.",
+      ] },
     ],
     media: roboticsExperienceMedia,
   },
@@ -109,7 +104,7 @@ const homepageExperience = [
     role: "STEM Intern",
     company: "Hypertherm & Fujifilm Dimatix · Lebanon, NH",
     summary: "Developed foundational CAD, manual machining, and manufacturing skills through engineering projects.",
-    sections: [["Role", "Developed foundational CAD, manual machining, and manufacturing skills through engineering projects."]],
+    roles: [{ title: "STEM Intern", date: "Aug 2021 – Jan 2022", bullets: ["Developed foundational CAD, manual machining, and manufacturing skills through engineering projects."] }],
     media: placeholderMedia(["/media/experience/stem-intern-1.jpg", "/media/experience/stem-intern-2.jpg"]),
   },
   {
@@ -117,13 +112,13 @@ const homepageExperience = [
     role: "Line Cook & Counterworker",
     company: "Dartmouth College Dining Services",
     summary: "Dartmouth College Dining Services line cook and counterworker.",
-    sections: [["Role", "Additional details to be added."]],
+    roles: [{ title: "Line Cook & Counterworker", date: "2022 – 2024", bullets: [] }],
     media: placeholderMedia(["/media/experience/dartmouth-dining-1.jpg", "/media/experience/dartmouth-dining-2.jpg"]),
   },
 ];
 
 function ExperienceSection() {
-  return <section className="experience" id="experience"><div className="section-title"><div><h2>Experience</h2></div><p>Click an experience to see more</p></div><div className="experience-list">{homepageExperience.map(item => <details className="experience-item" key={item.role}><summary><span className="date">{item.date}</span><span className="experience-role"><h3>{item.role}</h3><span>{item.company}</span></span><span className="experience-summary">{item.summary}</span><span className="experience-toggle" aria-hidden="true">+</span></summary><div className="experience-expanded"><ExperienceGallery items={item.media} label={item.role} /><div className="experience-copy">{item.sections.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div></div></details>)}</div></section>;
+  return <section className="experience" id="experience"><div className="section-title"><div><h2>Experience</h2></div><p>Click an experience to see more</p></div><div className="experience-list">{homepageExperience.map(item => <details className="experience-item" key={item.role}><summary><span className="date">{item.date}</span><span className="experience-role"><h3>{item.role}</h3><span>{item.company}</span></span><span className="experience-summary">{item.summary}</span><span className="experience-toggle" aria-hidden="true">+</span></summary><div className="experience-expanded"><ExperienceGallery items={item.media} label={item.role} /><div className="experience-copy">{item.roles.map(role => <section className="experience-position" key={`${role.title}-${role.date}`}><div><h4>{role.title}</h4><span>{role.date}</span></div>{role.bullets.length > 0 ? <ul>{role.bullets.map(bullet => <li key={bullet}>{bullet}</li>)}</ul> : <p>Additional details to be added.</p>}</section>)}</div></div></details>)}</div></section>;
 }
 
 function Home() {
