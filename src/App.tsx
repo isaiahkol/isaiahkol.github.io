@@ -90,18 +90,20 @@ const homepageExperience: ExperienceEntry[] = [
       {
         title: "FabLab Operations Manager",
         date: "Spring 2026 – Present",
-        summary: "Lead lab operations, balancing hands-on fabrication with technical direction and final decision making.",
+        summary: "",
         sections: [
-          ["Maintenance", "Manage preventative maintenance and SOP development across all lab equipment."],
-          ["Leadership", "Lead biweekly staff meetings to review lab performance, address issues, and implement changes."],
-          ["Troubleshooting", "Troubleshoot and repair 3D printers and laser cutters, resolving issues escalated by technicians."],
+          ["Leadership", "Lead lab operations, balancing hands-on fabrication with technical direction and final decision making."],
+          ["Process Management", "Manage preventative maintenance and SOP development across all lab equipment, and ensure operational processes are effective and efficient."],
+          ["Team Coordination", "Lead biweekly staff meetings to review lab performance, address issues, and implement changes."],
+          ["Problem Solving", "Troubleshoot and repair 3D printers and laser cutters, resolving issues escalated by technicians."],
         ],
       },
       {
         title: "FabLab Technician",
         date: "Sep 2025 – Dec 2025",
-        summary: "Contributed to 600+ fabrication tickets in one semester, operating FDM/SLA printers and laser cutters.",
+        summary: "",
         sections: [
+          ["Impact", "Contributed to 600+ fabrication tickets in one semester, operating FDM/SLA printers and laser cutters."],
           ["Machine operation", "Safely and efficiently operated 3D printers and laser cutters to complete fabrication requests from UVM students, faculty, and graduate researchers."],
           ["Technical advising", "Advised students and researchers on CAD, DFM, material selection, and fabrication strategies."],
         ],
@@ -109,26 +111,25 @@ const homepageExperience: ExperienceEntry[] = [
     ],
     media: fablabExperienceMedia,
     context: "The UVM FabLab functions as both a student makerspace and a small manufacturing job shop. Students can use the lab’s 3D printers, laser cutters, and other fabrication equipment for their own projects, while UVM students, faculty, and graduate researchers can also submit designs and specifications for the FabLab team to fabricate. Submitted fabrication requests are completed within two days.",
-    links: [{ label: "Visit the UVM FabLab", url: "https://www.uvm.edu/cems/uvmfablab" }],
+    links: [{ label: "Visit the UVM FabLab Website", url: "https://www.uvm.edu/cems/uvmfablab" }],
   },
   {
     date: "Sep 2017 – Jun 2024",
     role: "VEX Robotics",
-    company: "Team 4886-B · Various Locations, USA / Thetford, VT",
-    summary: "Shared responsibility for robot design, fabrication, controls, and documentation on a two-person team.",
+    company: "Team 4886-B · Various Locations, USA",
+    summary: "Shared responsibility for robot design, fabrication, controls, and documentation on a two-person team. Returned in coaching role during gap year.",
     subroles: [
       {
-        title: "VEX Robotics Team Coach",
+        title: "Gap Year: VEX Robotics Team Coach",
         date: "Aug 2023 – Jun 2024",
-        summary: "Mentored students aged 12-18 in CAD, design process, safe fabrication, and competition strategy.",
-        sections: [],
+        sections: ["Impact", "Mentored students aged 12-18 in CAD, design process, safe fabrication, and competition strategy."],
       },
       {
         title: "VEX Robotics Team Member",
         date: "Sep 2017 – Jun 2023",
-        summary: "Shared responsibility for robot design, fabrication, controls, and documentation on a two-person team.",
         sections: [
-          ["Competition record", "Four-time VEX World Championship competitor; 2023 NH/VT State Champion; recipient of three Design Awards and three Excellence Awards at the regional (NH/VT) level."],
+          ["Role", "Shared responsibility for robot design, fabrication, controls, and documentation on a two-person team."],
+          ["Awards & Accomplishments", "Four-time VEX World Championship competitor; 2023 NH/VT State Champion; recipient of three Design Awards and three Excellence Awards at the regional (NH/VT) level."],
         ],
       },
     ],
@@ -138,12 +139,13 @@ const homepageExperience: ExperienceEntry[] = [
     date: "Aug 2021 – Jan 2022",
     role: "STEM Intern",
     company: "Hypertherm & Fujifilm Dimatix · Lebanon, NH",
+    context: "Selected for a semester long coop/internship program alongside 7 other local STEM students with time split evenly between two local companies. Introduction to real industry work, Lean Manufacturing & Six Sigma, engineering design process, CAD, and manual machining.",
     summary: "Developed foundational CAD, manual machining, and manufacturing skills through engineering projects.",
-    sections: [["Role", "Developed foundational CAD, manual machining, and manufacturing skills through engineering projects."]],
+    sections: [["Overview", "Developed foundational CAD, manual machining, and manufacturing skills through engineering projects."]],
     media: placeholderMedia(["/media/experience/stem-intern-1.jpg", "/media/experience/stem-intern-2.jpg"]),
     links: [
-      { label: "Visit Hypertherm", url: "https://www.hypertherm.com/" },
-      { label: "Visit Fujifilm Dimatix", url: "https://www.fujifilm.com/us/en/business/inkjet-solutions/inkjet-technology-integration" },
+      { label: "Visit Hypertherm's Website", url: "https://www.hypertherm.com/" },
+      { label: "Visit Fujifilm Dimatix's Website", url: "https://www.fujifilm.com/us/en/business/inkjet-solutions/inkjet-technology-integration" },
     ],
   },
   {
@@ -151,7 +153,8 @@ const homepageExperience: ExperienceEntry[] = [
     role: "Line Cook & Counterworker",
     company: "Dartmouth College Dining Services",
     summary: "Dartmouth College Dining Services line cook and counterworker.",
-    sections: [["Role", "Additional details to be added."]],
+    sections: [["High School Job", "Worked for one year doing primarily prep work in the main dining facility on campus, and then was promoted to line cook for another year."],
+               ["Impact", "500+ eggs fried per day | 98% yield (unbroken yolks)"]],
     media: placeholderMedia(["/media/experience/dartmouth-dining-1.jpg", "/media/experience/dartmouth-dining-2.jpg"]),
   },
 ];
@@ -162,7 +165,7 @@ function ExperienceSection() {
 
 function Home() {
   return <main id="top"><Header />
-    <section className="intro"><div className="intro-copy"><p className="label">Mechanical Engineering · University of Vermont · Class of 2028</p><h1>Isaiah Kol</h1><p className="intro-line">I design, build, and troubleshoot mechanical systems—with a focus on <strong>robotics, manufacturing, and rapid prototyping.</strong></p><div className="intro-actions"><a className="project-jump" href="#projects">View projects</a><a className="linkedin-button" href="https://www.linkedin.com/in/isaiahkol" target="_blank" rel="noreferrer"><span aria-hidden="true">in</span> LinkedIn</a></div></div><img className="portrait" src="/media/headshot.jpg" alt="Isaiah Kol" /></section>
+    <section className="intro"><div className="intro-copy"><p className="label">Mechanical Engineering · University of Vermont · Class of 2028</p><h1>Isaiah Kol</h1><p className="intro-line">MechE Junior with a background in competitive robotics, experience in lab leadership, and strong interests in <strong>aerospace, manufacturing, and robotics.</strong></p><div className="intro-actions"><a className="project-jump" href="#projects">View projects</a><a className="linkedin-button" href="https://www.linkedin.com/in/isaiahkol" target="_blank" rel="noreferrer"><span aria-hidden="true">in</span> LinkedIn</a></div></div><img className="portrait" src="/media/headshot.jpg" alt="Isaiah Kol" /></section>
     <section className="projects" id="projects"><div className="section-title"><div><h2>Projects</h2></div><p>Selected mechanical design and fabrication work</p></div><div className="project-grid">{featured.map(project => <a className={`project-card ${project.wide ? "wide" : ""}`} href={project.href} key={project.title}><div className="image-wrap"><img src={project.image} alt={project.title} /><span className="view">View project</span></div><div className="project-info"><p className="kicker">{project.kicker}</p><h3>{project.title}</h3><p className="description">{project.description}</p><div className="tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div></a>)}</div></section>
     <ExperienceSection />
     <section className="about" id="about"><div><p className="label">About</p><h2>About me</h2><div className="about-media">{["/media/about/family.jpg", "/media/about/godzilla.jpg"].map(path => <div className="about-placeholder" key={path}><img src={path} alt="Isaiah Kol outside of engineering" onError={event => { event.currentTarget.style.display = "none"; }} /><strong>Photo placeholder</strong><span>public{path}</span></div>)}</div></div><div><p>I’ve been using CAD software and 3D printing on my own equipment since I was about 13, and I was heavily involved in competitive robotics throughout high school. At UVM, I started as a technician and I now run the FabLab, where I manage and operate 3D printers and other fabrication tools, assist students with technical projects, and support university research.</p><p>Through these experiences, I have gained extensive firsthand experience designing mechanical systems, working within real constraints, and rapidly prototyping functional parts and assemblies.</p><p>Outside of engineering, I enjoy biking, camping, skiing, and spending time with my cat, Godzilla.</p><div className="about-links"><a href="mailto:isaiahkol37@gmail.com">Email me</a><a href="https://www.linkedin.com/in/isaiahkol" target="_blank" rel="noreferrer">LinkedIn</a></div></div></section>
