@@ -5,11 +5,10 @@ export type MediaItem = { type: "image" | "video" | "youtube" | "placeholder"; s
 type MediaGalleryProps = {
   items: MediaItem[];
   compact?: boolean;
-  heading?: string;
   label?: string;
 };
 
-export default function MediaGallery({ items, compact = false, heading = "Project media", label = "Project" }: MediaGalleryProps) {
+export default function MediaGallery({ items, compact = false, label = "Project" }: MediaGalleryProps) {
   const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState<number | null>(null);
   const item = items[active];
@@ -37,7 +36,6 @@ export default function MediaGallery({ items, compact = false, heading = "Projec
   };
 
   return <section className={`media-section${compact ? " compact" : ""}`} aria-label={`${label} media gallery`}>
-    <div className="media-heading"><div><h2>{heading}</h2></div><span>{active + 1} / {items.length}</span></div>
     <div className="carousel-main">{renderMain(item, active)}{item.type === "image" && <span className="zoom-hint">Click to enlarge</span>}</div>
     {(item.caption || compact) && <p className="media-caption">{item.caption || item.alt}</p>}
     <div className="carousel-controls"><button onClick={previous} aria-label="Previous media">Previous</button><button onClick={next} aria-label="Next media">Next</button></div>
