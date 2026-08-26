@@ -31,7 +31,7 @@ const homepageExperience = [
       ["Manufacturing", "Worked across CNC turning and 5-axis milling, performing machine setup, operation, and continuous part inspection while holding tolerances as tight as ±0.0001 inch."],
       ["Quality control", "Performed batch inspections and assisted with first-off inspection using engineering drawings, GD&T, CMMs, optical comparators, Micro-Hites, vision systems, and precision gaging."],
     ],
-    photoPaths: ["public/media/experience/preci-1.jpg", "public/media/experience/preci-2.jpg"],
+    photoPaths: ["/media/experience/preci-1.jpg", "/media/experience/preci-2.jpg"],
   },
   {
     date: "2026 — Present",
@@ -42,7 +42,7 @@ const homepageExperience = [
       ["Operations", "Coordinate technicians, preventive maintenance, scheduling, SOP development, staff meetings, and hiring for a university fabrication lab supporting coursework, research, and student projects."],
       ["Technical work", "Remain hands-on with equipment operation, fabrication tickets, difficult student projects, and troubleshooting escalated machine problems."],
     ],
-    photoPaths: ["public/media/experience/fablab-1.jpg", "public/media/experience/fablab-2.jpg"],
+    photoPaths: ["/media/experience/fablab-1.jpg", "/media/experience/fablab-2.jpg"],
   },
   {
     date: "2017 — 2024",
@@ -53,12 +53,12 @@ const homepageExperience = [
       ["Competition", "Designed, fabricated, assembled, and iteratively improved competition robot systems under strict time and rules constraints."],
       ["Coaching", "Returned after graduation to coach students in CAD, fabrication, assembly, design documentation, and competition troubleshooting."],
     ],
-    photoPaths: ["public/media/experience/vex-1.jpg", "public/media/experience/vex-2.jpg"],
+    photoPaths: ["/media/experience/vex-1.jpg", "/media/experience/vex-2.jpg"],
   },
 ];
 
 function ExperienceSection() {
-  return <section className="experience" id="experience"><div className="section-title"><div><span>02</span><h2>Experience</h2></div><p>Click an experience to see more</p></div><div className="experience-list">{homepageExperience.map(item => <details className="experience-item" key={item.role}><summary><span className="date">{item.date}</span><span className="experience-role"><h3>{item.role}</h3><span>{item.company}</span></span><span className="experience-summary">{item.summary}</span><span className="experience-toggle" aria-hidden="true">+</span></summary><div className="experience-expanded"><div className="experience-copy">{item.sections.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div><div className="experience-media">{item.photoPaths.map(path => <div className="experience-placeholder" key={path}><strong>Photo placeholder</strong><span>{path}</span></div>)}</div></div></details>)}</div></section>;
+  return <section className="experience" id="experience"><div className="section-title"><div><span>02</span><h2>Experience</h2></div><p>Click an experience to see more</p></div><div className="experience-list">{homepageExperience.map(item => <details className="experience-item" key={item.role}><summary><span className="date">{item.date}</span><span className="experience-role"><h3>{item.role}</h3><span>{item.company}</span></span><span className="experience-summary">{item.summary}</span><span className="experience-toggle" aria-hidden="true">+</span></summary><div className="experience-expanded"><div className="experience-copy">{item.sections.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div><div className="experience-media">{item.photoPaths.map(path => <div className="experience-placeholder" key={path}><img src={path} alt={`${item.role} experience`} onError={event => { event.currentTarget.style.display = "none"; }} /><strong>Photo placeholder</strong><span>public{path}</span></div>)}</div></div></details>)}</div></section>;
 }
 
 function Home() {
