@@ -79,7 +79,7 @@ const homepageExperience: ExperienceEntry[] = [
       ["Automation", "Supported implementation of automation, verifying workholding, part handling, and process repeatability."],
       ["Quality control", "Performed QC inspections using GD&T and metrology equipment including CMMs, optical comparators, indicators and precision gaging; verified material/process certifications and traceability."],
     ],
-    media: placeholderMedia(["/media/experience/preci-1.JPEG", "/media/experience/preci-2.jpg"]),
+    media: placeholderMedia(["/media/experience/preci-1.jpg", "/media/experience/preci-2.jpg"]),
     links: [{ label: "Visit Preci Manufacturing", url: "https://www.preci.com/" }],
   },
   {
