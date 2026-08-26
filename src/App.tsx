@@ -119,7 +119,7 @@ function ProjectPage({ slug }: { slug: string }) {
 }
 
 function Resume() {
-  return <main className="resume-page"><Header /><section className="resume-viewer"><div className="resume-toolbar"><div><p className="label">Resume</p><h1>Isaiah Kol</h1></div><a className="resume-download" href="/IsaiahKolResume.pdf" download>Download PDF ↓</a></div><iframe src="/IsaiahKolResume.pdf" title="Isaiah Kol resume PDF" /></section><footer><strong>Isaiah Kol</strong><a href="/">Return to portfolio</a></footer></main>;
+  return <main className="resume-page"><Header /><section className="resume-viewer"><div className="resume-toolbar"><div><p className="label">Resume</p><h1>Isaiah Kol</h1></div><a className="resume-download" href="/IsaiahKolResume.pdf?v=20260826" download="IsaiahKolResume.pdf">Download PDF ↓</a></div><iframe src="/IsaiahKolResume.pdf?v=20260826" title="Isaiah Kol resume PDF" /></section><footer><strong>Isaiah Kol</strong><a href="/">Return to portfolio</a></footer></main>;
 }
 
 function NotFound() { return <main className="not-found"><div><p className="label">404</p><h1>Page not found.</h1><p>The project or page you requested does not exist.</p><a className="project-jump" href="/">Return home →</a></div></main>; }
