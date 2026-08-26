@@ -46,7 +46,7 @@ npm install
 npm run dev
 ```
 
-Open the address shown in the terminal. Check the homepage, each project, every carousel, image enlargement, videos, YouTube embeds, and the résumé. Stop the test with `Ctrl + C`, then run:
+Open the address shown in the terminal. Check the homepage, each project, every carousel, image enlargement, videos, YouTube embeds, and the resume. Stop the test with `Ctrl + C`, then run:
 
 ```bash
 npm run build
