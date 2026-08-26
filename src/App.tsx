@@ -49,7 +49,8 @@ const roboticsExperienceMedia: MediaItem[] = [
 const placeholderMedia = (paths: string[]): MediaItem[] => paths.map(src => ({ type: "placeholder", src, alt: "Photo placeholder" }));
 
 type ExperienceSubrole = {
-  label: string;
+  title: string;
+  date: string;
   summary: string;
   sections: [string, string][];
 };
@@ -85,7 +86,8 @@ const homepageExperience: ExperienceEntry[] = [
     summary: "Lead lab operations, balancing hands-on fabrication with technical direction and final decision making.",
     subroles: [
       {
-        label: "FabLab Operations Manager -- Spring 2026 - Present",
+        title: "FabLab Operations Manager",
+        date: "Spring 2026 – Present",
         summary: "Lead lab operations, balancing hands-on fabrication with technical direction and final decision making.",
         sections: [
           ["Maintenance", "Manage preventative maintenance and SOP development across all lab equipment."],
@@ -94,7 +96,8 @@ const homepageExperience: ExperienceEntry[] = [
         ],
       },
       {
-        label: "FabLab Technician -- Sep 2025 - Dec 2025",
+        title: "FabLab Technician",
+        date: "Sep 2025 – Dec 2025",
         summary: "Contributed to 600+ fabrication tickets in one semester, operating FDM/SLA printers and laser cutters.",
         sections: [
           ["Technical advising", "Advised students and researchers on CAD, DFM, material selection, and fabrication strategies."],
@@ -108,10 +111,21 @@ const homepageExperience: ExperienceEntry[] = [
     role: "VEX Robotics",
     company: "Team 4886-B · Various Locations, USA / Thetford, VT",
     summary: "Shared responsibility for robot design, fabrication, controls, and documentation on a two-person team.",
-    sections: [
-      ["Gap-Year Team Coach · Aug 2023 – Jun 2024", "Mentored students aged 12-18 in CAD, design process, safe fabrication, and competition strategy."],
-      ["Team Member · Sep 2017 – Jun 2023", "Shared responsibility for robot design, fabrication, controls, and documentation on a two-person team."],
-      ["Team Member · Competition record", "Four-time VEX World Championship competitor; 2023 NH/VT State Champion; recipient of three Design Awards and three Excellence Awards at the regional (NH/VT) level."],
+    subroles: [
+      {
+        title: "VEX Robotics Team Coach",
+        date: "Aug 2023 – Jun 2024",
+        summary: "Mentored students aged 12-18 in CAD, design process, safe fabrication, and competition strategy.",
+        sections: [],
+      },
+      {
+        title: "VEX Robotics Team Member",
+        date: "Sep 2017 – Jun 2023",
+        summary: "Shared responsibility for robot design, fabrication, controls, and documentation on a two-person team.",
+        sections: [
+          ["Competition record", "Four-time VEX World Championship competitor; 2023 NH/VT State Champion; recipient of three Design Awards and three Excellence Awards at the regional (NH/VT) level."],
+        ],
+      },
     ],
     media: roboticsExperienceMedia,
   },
@@ -134,7 +148,7 @@ const homepageExperience: ExperienceEntry[] = [
 ];
 
 function ExperienceSection() {
-  return <section className="experience" id="experience"><div className="section-title"><div><h2>Experience</h2></div><p>Click an experience to see more</p></div><div className="experience-list">{homepageExperience.map(item => <details className="experience-item" key={item.role}><summary><span className="date">{item.date}</span><span className="experience-role"><h3>{item.role}</h3><span>{item.company}</span></span><span className="experience-summary">{item.summary}</span><span className="experience-toggle" aria-hidden="true">+</span></summary><div className="experience-expanded"><MediaGallery items={item.media} compact heading="Experience media" label={item.role} />{item.subroles ? <div className="nested-experience-list">{item.subroles.map(subrole => <details className="nested-experience" key={subrole.label}><summary><span><h4>{subrole.label}</h4><p>{subrole.summary}</p></span><span className="nested-experience-toggle" aria-hidden="true">+</span></summary><div className="experience-copy nested-experience-copy">{subrole.sections.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div></details>)}</div> : <div className="experience-copy">{item.sections?.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div>}</div></details>)}</div></section>;
+  return <section className="experience" id="experience"><div className="section-title"><div><h2>Experience</h2></div><p>Click an experience to see more</p></div><div className="experience-list">{homepageExperience.map(item => <details className="experience-item" key={item.role}><summary><span className="date">{item.date}</span><span className="experience-role"><h3>{item.role}</h3><span>{item.company}</span></span><span className="experience-summary">{item.summary}</span><span className="experience-toggle" aria-hidden="true">+</span></summary><div className="experience-expanded"><MediaGallery items={item.media} compact label={item.role} />{item.subroles ? <div className="nested-experience-list">{item.subroles.map(subrole => <details className="nested-experience" key={subrole.title}><summary><span><span className="nested-experience-heading"><h4>{subrole.title}</h4><time>{subrole.date}</time></span><p>{subrole.summary}</p></span><span className="nested-experience-toggle" aria-hidden="true">+</span></summary>{subrole.sections.length > 0 && <div className="experience-copy nested-experience-copy">{subrole.sections.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div>}</details>)}</div> : <div className="experience-copy">{item.sections?.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div>}</div></details>)}</div></section>;
 }
 
 function Home() {

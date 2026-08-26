@@ -81,3 +81,16 @@ header{position:sticky;top:0;z-index:20;background:rgba(9,9,9,.95);border-bottom
   .lightbox{grid-template-columns:62px minmax(0,1fr) 62px;padding:12px 8px}
   .lightbox-prev,.lightbox-next{width:56px;height:42px;padding:0 4px;font-size:9px}
 }
+
+
+/* Role/date hierarchy and headerless media carousels. */
+.media-heading{display:none}
+.media-section.compact{border-top:3px solid var(--yellow)}
+.media-section.compact .carousel-main{border-top:0}
+.nested-experience-heading{display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.nested-experience-heading h4{margin:0}
+.nested-experience-heading time{flex-shrink:0;color:var(--yellow);font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+@media(max-width:800px){
+  .nested-experience-heading{display:block}
+  .nested-experience-heading time{display:block;margin:7px 0 0}
+}
