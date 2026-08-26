@@ -48,3 +48,36 @@ header{position:sticky;top:0;z-index:20;background:rgba(9,9,9,.95);border-bottom
 .image-wrap img,.about-placeholder img,.experience-image-button img,.experience-gallery-thumbs img,.main-image-button img,.media-thumbnails img,.detail-gallery img{object-fit:contain;background:#050505}
 .carousel-main video,.experience-gallery-main video,.lightbox-content video{object-fit:contain;background:#000}
 .portrait{object-fit:cover;background:transparent}
+
+
+/* Shared project/experience carousel sizing and nested FabLab roles. */
+.media-section.compact{max-width:920px;border:1px solid #3e3e3e;background:#0a0a0a}
+.media-section.compact .media-heading{padding:11px 14px;border-top:3px solid var(--yellow);border-bottom:1px solid #303030}
+.media-section.compact .media-heading h2{margin:0;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.media-section.compact .carousel-main{height:360px;border:0}
+.media-section.compact .media-caption{min-height:34px;margin:0;padding:10px 14px;border-top:1px solid #303030}
+.media-section.compact .carousel-controls{margin:0;padding:0 14px 10px}
+.media-section.compact .media-thumbnails{display:flex;gap:7px;margin:0;padding:0 14px 14px;overflow-x:auto;scrollbar-color:var(--yellow) #1b1b1b}
+.media-section.compact .media-thumbnails button{flex:0 0 92px;height:62px}
+.media-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:1px dashed #555;color:#c7c7c2}
+.media-placeholder strong{font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+.media-placeholder span{max-width:90%;color:#707070;font:9px monospace;overflow-wrap:anywhere}
+.nested-experience-list{max-width:920px;margin-top:22px;border-top:1px solid var(--line)}
+.nested-experience{border-bottom:1px solid var(--line)}
+.nested-experience>summary{display:grid;grid-template-columns:1fr 22px;gap:24px;padding:24px 0;cursor:pointer;list-style:none}
+.nested-experience>summary::-webkit-details-marker{display:none}
+.nested-experience>summary h4{margin:0 0 8px;font-family:var(--heading);font-size:16px}
+.nested-experience>summary p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+.nested-experience-toggle{color:var(--yellow);font-family:var(--heading);font-size:20px;line-height:1}
+.nested-experience[open] .nested-experience-toggle{transform:rotate(45deg)}
+.nested-experience-copy{margin:0 0 20px}
+.lightbox{grid-template-columns:80px minmax(0,1fr) 80px}
+.lightbox-prev,.lightbox-next{width:68px;height:48px;padding:0 8px;background:var(--yellow);border:1px solid var(--yellow);color:#090909;font:900 11px Arial,sans-serif}
+.lightbox button.lightbox-prev:hover,.lightbox button.lightbox-next:hover{background:#fff;border-color:#fff;color:#090909}
+@media(max-width:800px){
+  .media-section.compact .carousel-main{height:260px;aspect-ratio:auto}
+  .media-section.compact .media-thumbnails{display:flex}
+  .media-section.compact .media-thumbnails button{flex-basis:76px;height:54px}
+  .lightbox{grid-template-columns:62px minmax(0,1fr) 62px;padding:12px 8px}
+  .lightbox-prev,.lightbox-next{width:56px;height:42px;padding:0 4px;font-size:9px}
+}
