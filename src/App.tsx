@@ -12,11 +12,13 @@ const featured = [
 ];
 
 const experience = [
-  { company: "University of Vermont FabLab", role: "Operations Manager", date: "Jan 2026 — Present", bullets: ["Lead daily operations and provide technical direction for a university fabrication lab supporting coursework, research, and student projects.", "Coordinate technicians, preventive maintenance, scheduling, SOP development, staff meetings, and hiring while remaining hands-on with equipment and troubleshooting.", "Promoted from FabLab Technician after one semester; completed more than 600 fabrication tickets during the first semester."] },
-  { company: "Preci Manufacturing", role: "CNC Machinist Intern", date: "Summer 2026", bullets: ["Worked across CNC turning, 5-axis milling, and quality control in a precision aerospace and defense manufacturing environment.", "Performed machine setup, operation, and continuous part inspection to maintain tolerances as tight as ±0.0001 inch.", "Conducted batch inspections and assisted with first-off inspection using drawings, GD&T, CMMs, optical comparators, Micro-Hites, vision systems, and precision gaging.", "Assisted with machine automation setup by verifying workholding, gripper operation, part handling, and process repeatability."] },
-  { company: "VEX Robotics · Team 4886", role: "Team Captain and Coach", date: "2017 — 2024", bullets: ["Designed, fabricated, assembled, and iteratively improved competition robot systems under strict time and rules constraints.", "Qualified for the VEX World Championship four times and contributed to the 2023 NH/VT State Championship-winning robot.", "Returned after graduation to coach students in CAD, fabrication, assembly, design documentation, and competition troubleshooting."] },
-  { company: "Dartmouth College Dining Services", role: "Line Cook & Counterworker", date: "2022 — 2024", bullets: ["Designed, fabricated, assembled, and iteratively improved competition robot systems under strict time and rules constraints.", "Qualified for the VEX World Championship four times and contributed to the 2023 NH/VT State Championship-winning robot.", "Returned after graduation to coach students in CAD, fabrication, assembly, design documentation, and competition troubleshooting."] },
-  { company: "Hypertherm & Fujifilm Dimatix", role: "STEM Intern", date: "2017 — 2024", bullets: ["Designed, fabricated, assembled, and iteratively improved competition robot systems under strict time and rules constraints.", "Qualified for the VEX World Championship four times and contributed to the 2023 NH/VT State Championship-winning robot.", "Returned after graduation to coach students in CAD, fabrication, assembly, design documentation, and competition troubleshooting."] },
+  { company: "Preci Manufacturing · Winooski, VT", role: "CNC Machinist Intern", date: "May 2026 – Aug 2026", bullets: ["Rotated through turning, 5-axis milling, and quality control in an aerospace manufacturing environment.", "Executed CNC setups, assembling tooling and workholding, and adjusting geometry for first-off inspection.", "Inspected parts and adjusted tool offsets during production to maintain tolerances as tight as ± 0.0001\".", "Supported implementation of automation, verifying workholding, part handling, and process repeatability.", "Performed QC inspections using GD&T and metrology equipment including CMMs, optical comparators, indicators and precision gaging; verified material/process certifications and traceability."] },
+  { company: "UVM FabLab · Burlington, VT", role: "Operations Manager", date: "Dec 2025 – Present", bullets: ["Lead lab operations, balancing hands-on fabrication with technical direction and final decision making.", "Manage preventative maintenance and SOP development across all lab equipment.", "Lead biweekly staff meetings to review lab performance, address issues, and implement changes.", "Troubleshoot and repair 3D printers and laser cutters, resolving issues escalated by technicians."] },
+  { company: "UVM FabLab · Burlington, VT", role: "Technician", date: "Sep 2025 – Dec 2025", bullets: ["Contributed to 600+ fabrication tickets in one semester, operating FDM/SLA printers and laser cutters.", "Advised students and researchers on CAD, DFM, material selection, and fabrication strategies."] },
+  { company: "Thetford, VT", role: "Gap-Year: VEX Robotics Team Coach", date: "Aug 2023 – Jun 2024", bullets: ["Mentored students aged 12-18 in CAD, design process, safe fabrication, and competition strategy."] },
+  { company: "VEX Robotics Team 4886-B · Various Locations, USA", role: "Team Member", date: "Sep 2017 – Jun 2023", bullets: ["Shared responsibility for robot design, fabrication, controls, and documentation on a two-person team.", "Four-time VEX World Championship competitor; 2023 NH/VT State Champion; recipient of three Design Awards and three Excellence Awards at the regional (NH/VT) level."] },
+  { company: "Hypertherm & Fujifilm Dimatix · Lebanon, NH", role: "STEM Intern", date: "Aug 2021 – Jan 2022", bullets: ["Developed foundational CAD, manual machining, and manufacturing skills through engineering projects."] },
+  { company: "Dartmouth College Dining Services", role: "Line Cook & Counterworker", date: "2022 – 2024", bullets: [] },
 ];
 
 function Header({ project = false }: { project?: boolean }) {
@@ -25,38 +27,74 @@ function Header({ project = false }: { project?: boolean }) {
 
 const homepageExperience = [
   {
-    date: "Summer 2026",
+    date: "May 2026 – Aug 2026",
     role: "CNC Machinist Intern",
-    company: "Preci Manufacturing · Precision aerospace & defense manufacturing",
-    summary: "Machine setup and operation across CNC turning and 5-axis milling, plus batch and first-off inspection using CMMs, optical comparators, Micro-Hites, and precision gaging.",
+    company: "Preci Manufacturing · Winooski, VT",
+    summary: "Rotated through turning, 5-axis milling, and quality control in an aerospace manufacturing environment.",
     sections: [
-      ["Turning", "Worked across CNC turning and 5-axis milling, performing machine setup, operation, and continuous part inspection while holding tolerances as tight as ±0.0001 inch."],
-      ["Milling", "Worked across CNC turning and 5-axis milling, performing machine setup, operation, and continuous part inspection while holding tolerances as tight as ±0.0001 inch."],
-      ["Quality control", "Performed batch inspections and assisted with first-off inspection using engineering drawings, GD&T, CMMs, optical comparators, Micro-Hites, vision systems, and precision gaging."],
+      ["CNC setups", "Executed CNC setups, assembling tooling and workholding, and adjusting geometry for first-off inspection."],
+      ["Production", "Inspected parts and adjusted tool offsets during production to maintain tolerances as tight as ± 0.0001\"."],
+      ["Automation", "Supported implementation of automation, verifying workholding, part handling, and process repeatability."],
+      ["Quality control", "Performed QC inspections using GD&T and metrology equipment including CMMs, optical comparators, indicators and precision gaging; verified material/process certifications and traceability."],
     ],
     photoPaths: ["/media/experience/preci-1.jpg", "/media/experience/preci-2.jpg"],
   },
   {
-    date: "2026 — Present",
-    role: "FabLab Operations Manager",
-    company: "University of Vermont",
-    summary: "Lead daily lab operations, technician coordination, maintenance, SOP development, and technical support while staying hands-on with fabrication and research projects.",
+    date: "Dec 2025 – Present",
+    role: "Operations Manager",
+    company: "UVM FabLab · Burlington, VT",
+    summary: "Lead lab operations, balancing hands-on fabrication with technical direction and final decision making.",
     sections: [
-      ["Operations", "Coordinate technicians, preventive maintenance, scheduling, SOP development, staff meetings, and hiring for a university fabrication lab supporting coursework, research, and student projects."],
-      ["Technical work", "Remain hands-on with equipment operation, fabrication tickets, difficult student projects, and troubleshooting escalated machine problems."],
+      ["Maintenance", "Manage preventative maintenance and SOP development across all lab equipment."],
+      ["Leadership", "Lead biweekly staff meetings to review lab performance, address issues, and implement changes."],
+      ["Troubleshooting", "Troubleshoot and repair 3D printers and laser cutters, resolving issues escalated by technicians."],
     ],
     photoPaths: ["/media/experience/fablab-1.jpg", "/media/experience/fablab-2.jpg"],
   },
   {
-    date: "2017 — 2024",
-    role: "Team Member & Gap Year Coach",
-    company: "VEX Robotics · Team 4886",
-    summary: "Four-time World Championship qualifier and 2023 NH/VT State Champion; later coached students in CAD, fabrication, assembly, and competition troubleshooting.",
+    date: "Sep 2025 – Dec 2025",
+    role: "Technician",
+    company: "UVM FabLab · Burlington, VT",
+    summary: "Contributed to 600+ fabrication tickets in one semester, operating FDM/SLA printers and laser cutters.",
     sections: [
-      ["Competition", "Designed, fabricated, assembled, and iteratively improved competition robot systems under strict time and rules constraints."],
-      ["Coaching", "Returned after graduation to coach students in CAD, fabrication, assembly, design documentation, and competition troubleshooting."],
+      ["Technical advising", "Advised students and researchers on CAD, DFM, material selection, and fabrication strategies."],
+    ],
+    photoPaths: ["/media/experience/fablab-technician-1.jpg", "/media/experience/fablab-technician-2.jpg"],
+  },
+  {
+    date: "Aug 2023 – Jun 2024",
+    role: "Gap-Year: VEX Robotics Team Coach",
+    company: "Thetford, VT",
+    summary: "Mentored students aged 12-18 in CAD, design process, safe fabrication, and competition strategy.",
+    sections: [["Role", "Mentored students aged 12-18 in CAD, design process, safe fabrication, and competition strategy."]],
+    photoPaths: ["/media/experience/vex-coach-1.jpg", "/media/experience/vex-coach-2.jpg"],
+  },
+  {
+    date: "Sep 2017 – Jun 2023",
+    role: "Team Member",
+    company: "VEX Robotics Team 4886-B · Various Locations, USA",
+    summary: "Shared responsibility for robot design, fabrication, controls, and documentation on a two-person team.",
+    sections: [
+      ["Responsibilities", "Shared responsibility for robot design, fabrication, controls, and documentation on a two-person team."],
+      ["Competition record", "Four-time VEX World Championship competitor; 2023 NH/VT State Champion; recipient of three Design Awards and three Excellence Awards at the regional (NH/VT) level."],
     ],
     photoPaths: ["/media/experience/vex-1.jpg", "/media/experience/vex-2.jpg"],
+  },
+  {
+    date: "Aug 2021 – Jan 2022",
+    role: "STEM Intern",
+    company: "Hypertherm & Fujifilm Dimatix · Lebanon, NH",
+    summary: "Developed foundational CAD, manual machining, and manufacturing skills through engineering projects.",
+    sections: [["Role", "Developed foundational CAD, manual machining, and manufacturing skills through engineering projects."]],
+    photoPaths: ["/media/experience/stem-intern-1.jpg", "/media/experience/stem-intern-2.jpg"],
+  },
+  {
+    date: "2022 – 2024",
+    role: "Line Cook & Counterworker",
+    company: "Dartmouth College Dining Services",
+    summary: "Dartmouth College Dining Services line cook and counterworker.",
+    sections: [["Role", "Additional details to be added."]],
+    photoPaths: ["/media/experience/dartmouth-dining-1.jpg", "/media/experience/dartmouth-dining-2.jpg"],
   },
 ];
 
