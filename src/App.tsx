@@ -21,11 +21,51 @@ function Header({ project = false }: { project?: boolean }) {
   return <header><nav aria-label="Primary navigation"><a className="brand" href="/">Isaiah Kol</a><div className="nav-links"><a href="/#projects">{project ? "All projects" : "Projects"}</a>{!project && <><a href="/#experience">Experience</a><a href="/#about">About</a></>}<a href="/resume">Résumé</a>{project && <a href="mailto:isaiahkol37@gmail.com">Contact</a>}</div></nav></header>;
 }
 
+const homepageExperience = [
+  {
+    date: "Summer 2026",
+    role: "CNC Machinist Intern",
+    company: "Preci Manufacturing · Precision aerospace & defense manufacturing",
+    summary: "Machine setup and operation across CNC turning and 5-axis milling, plus batch and first-off inspection using CMMs, optical comparators, Micro-Hites, and precision gaging.",
+    sections: [
+      ["Manufacturing", "Worked across CNC turning and 5-axis milling, performing machine setup, operation, and continuous part inspection while holding tolerances as tight as ±0.0001 inch."],
+      ["Quality control", "Performed batch inspections and assisted with first-off inspection using engineering drawings, GD&T, CMMs, optical comparators, Micro-Hites, vision systems, and precision gaging."],
+    ],
+    photoPaths: ["/media/experience/preci-1.jpg", "/media/experience/preci-2.jpg"],
+  },
+  {
+    date: "2026 — Present",
+    role: "FabLab Operations Manager",
+    company: "University of Vermont",
+    summary: "Lead daily lab operations, technician coordination, maintenance, SOP development, and technical support while staying hands-on with fabrication and research projects.",
+    sections: [
+      ["Operations", "Coordinate technicians, preventive maintenance, scheduling, SOP development, staff meetings, and hiring for a university fabrication lab supporting coursework, research, and student projects."],
+      ["Technical work", "Remain hands-on with equipment operation, fabrication tickets, difficult student projects, and troubleshooting escalated machine problems."],
+    ],
+    photoPaths: ["/media/experience/fablab-1.jpg", "/media/experience/fablab-2.jpg"],
+  },
+  {
+    date: "2017 — 2024",
+    role: "Team Captain & Coach",
+    company: "VEX Robotics · Team 4886",
+    summary: "Four-time World Championship qualifier and 2023 NH/VT State Champion; later coached students in CAD, fabrication, assembly, and competition troubleshooting.",
+    sections: [
+      ["Competition", "Designed, fabricated, assembled, and iteratively improved competition robot systems under strict time and rules constraints."],
+      ["Coaching", "Returned after graduation to coach students in CAD, fabrication, assembly, design documentation, and competition troubleshooting."],
+    ],
+    photoPaths: ["/media/experience/vex-1.jpg", "/media/experience/vex-2.jpg"],
+  },
+];
+
+function ExperienceSection() {
+  return <section className="experience" id="experience"><div className="section-title"><div><span>02</span><h2>Experience</h2></div><p>Click an experience to see more</p></div><div className="experience-list">{homepageExperience.map(item => <details className="experience-item" key={item.role}><summary><span className="date">{item.date}</span><span className="experience-role"><h3>{item.role}</h3><span>{item.company}</span></span><span className="experience-summary">{item.summary}</span><span className="experience-toggle" aria-hidden="true">+</span></summary><div className="experience-expanded"><div className="experience-copy">{item.sections.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div><div className="experience-media">{item.photoPaths.map(path => <div className="experience-placeholder" key={path}><img src={path} alt={`${item.role} experience`} onError={event => { event.currentTarget.style.display = "none"; }} /><strong>Photo placeholder</strong><span>public{path}</span></div>)}</div></div></details>)}</div></section>;
+}
+
 function Home() {
   return <main id="top"><Header />
-    <section className="intro"><div className="intro-copy"><p className="label">Mechanical Engineering · University of Vermont · Class of 2028</p><h1>Isaiah Kol</h1><p className="intro-line">I design, build, and troubleshoot mechanical systems—with a focus on <strong>robotics, manufacturing, and rapid prototyping.</strong></p><a className="project-jump" href="#projects">View projects <span>↓</span></a></div><img className="portrait" src="/media/headshot.jpg" alt="Isaiah Kol" /></section>
+    <section className="intro"><div className="intro-copy"><p className="label">Mechanical Engineering · University of Vermont · Class of 2028</p><h1>Isaiah Kol</h1><p className="intro-line">I design, build, and troubleshoot mechanical systems—with a focus on <strong>robotics, manufacturing, and rapid prototyping.</strong></p><div className="intro-actions"><a className="project-jump" href="#projects">View projects <span>↓</span></a><a className="linkedin-button" href="https://www.linkedin.com/in/isaiah-kol/" target="_blank" rel="noreferrer"><span aria-hidden="true">in</span> LinkedIn</a></div></div><img className="portrait" src="/media/headshot.jpg" alt="Isaiah Kol" /></section>
     <section className="projects" id="projects"><div className="section-title"><div><span>01</span><h2>Projects</h2></div><p>Selected mechanical design and fabrication work</p></div><div className="project-grid">{featured.map((project, index) => <a className={`project-card ${project.wide ? "wide" : ""}`} href={project.href} key={project.title}><div className="image-wrap"><img src={project.image} alt={project.title} /><span className="view">View project ↗</span><span className="number">0{index + 1}</span></div><div className="project-info"><p className="kicker">{project.kicker}</p><h3>{project.title}</h3><p className="description">{project.description}</p><div className="tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div></a>)}</div></section>
-    <section className="experience" id="experience"><div className="section-title"><div><span>02</span><h2>Experience</h2></div><p>The work behind the projects</p></div><div className="experience-list"><article><p className="date">Summer 2026</p><div><h3>CNC Machinist Intern</h3><p>Precision aerospace & defense manufacturing</p></div><p>Machine setup and operation across CNC turning and 5-axis milling, plus batch and first-off inspection using CMMs, optical comparators, Micro-Hites, and precision gaging.</p></article><article><p className="date">2026 — Present</p><div><h3>FabLab Operations Manager</h3><p>University of Vermont</p></div><p>Lead daily lab operations, technician coordination, maintenance, SOP development, and technical support while staying hands-on with fabrication and research projects.</p></article><article><p className="date">2017 — 2024</p><div><h3>Team Captain & Coach</h3><p>VEX Robotics · Team 4886</p></div><p>Four-time World Championship qualifier and 2023 NH/VT State Champion; later coached students in CAD, fabrication, assembly, and competition troubleshooting.</p></article></div></section>
+    <ExperienceSection />
     <section className="about" id="about"><div><p className="label">About</p><h2>About me</h2></div><div><p>I’ve been using CAD and 3D printing on my own equipment since I was about 13. Today, I’m a junior mechanical engineering student at UVM and help run the university FabLab.</p><p>I’m most interested in work where I can move between CAD, manufacturing, inspection, and physical testing—and where a design has to do more than look good on a screen.</p><div className="about-links"><a href="mailto:isaiahkol37@gmail.com">Email me ↗</a><a href="https://www.linkedin.com/in/isaiah-kol/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div></div></section>
     <footer><strong>Isaiah Kol</strong><p>Mechanical Engineering · Burlington, Vermont</p><a href="#top">Back to top ↑</a></footer>
   </main>;
@@ -38,11 +78,7 @@ function ProjectPage({ slug }: { slug: string }) {
 }
 
 function Resume() {
-  return <main className="resume-page"><Header /><article className="resume-sheet"><div className="resume-head"><div><p className="label">Mechanical Engineering</p><h1>Isaiah Kol</h1><p>Junior mechanical engineering student focused on robotics, aerospace, manufacturing, and hands-on product development.</p></div><address><a href="mailto:isaiahkol37@gmail.com">isaiahkol37@gmail.com</a><span>Burlington, Vermont</span><a href="https://www.linkedin.com/in/isaiah-kol/" target="_blank" rel="noreferrer">LinkedIn</a><a href="/">Portfolio</a><button className="print-button" onClick={() => window.print()}>Print / Save PDF</button></address></div>
-    <section className="resume-section"><h2>Education</h2><div className="resume-entry"><div><h3>University of Vermont</h3><p>B.S. Mechanical Engineering · Expected 2028</p></div><p className="resume-date">GPA: 3.82</p></div></section>
-    <section className="resume-section"><h2>Experience</h2>{experience.map(item => <div className="resume-entry stacked" key={item.company}><div className="entry-heading"><div><h3>{item.role}</h3><p>{item.company}</p></div><p className="resume-date">{item.date}</p></div><ul>{item.bullets.map(bullet => <li key={bullet}>{bullet}</li>)}</ul></div>)}</section>
-    <section className="resume-section"><h2>Projects</h2><div className="resume-entry stacked"><div className="entry-heading"><div><h3><a href="/projects/robot-arm">6-DOF Robot Arm</a></h3><p>Independent project</p></div><p className="resume-date">Mar 2026 — Present</p></div><ul><li>Designed and built a six-axis robotic arm using custom 21:1 cycloidal gearboxes, belt reductions, FDM components, and open-loop stepper control.</li><li>Integrated an Arduino Mega, six DM542TE drivers, a 24 V power system, and computer-based multi-axis jog control.</li></ul></div><div className="resume-entry stacked"><div className="entry-heading"><div><h3><a href="/projects/cycloidal-drive">Cycloidal Gearbox</a></h3><p>Independent project</p></div><p className="resume-date">Jan 2026 — Present</p></div><ul><li>Created a compact dual-disc cycloidal reducer from equation-driven geometry and iteratively improved bearings, pins, clearances, support, and assembly.</li></ul></div><div className="resume-entry stacked"><div className="entry-heading"><div><h3><a href="/projects/marble-run">Star Wars Marble Run</a></h3><p>Advanced 3D Drafting</p></div><p className="resume-date">Fall 2025</p></div><ul><li>Designed and fabricated mechanisms for a 600 mm dual-path marble run with an Arduino-controlled elevator and launcher.</li></ul></div></section>
-    <section className="resume-section"><h2>Technical Skills</h2><div className="skills-grid"><p><strong>Design:</strong> SolidWorks, assemblies, drawings, GD&T, design for manufacturing, design for additive manufacturing</p><p><strong>Manufacturing:</strong> CNC turning, 5-axis milling, FDM and SLA printing, laser cutting, machine setup, workholding</p><p><strong>Inspection:</strong> CMMs, optical comparators, Micro-Hites, vision systems, micrometers, dial indicators, precision gaging</p><p><strong>Controls:</strong> Arduino, C++, Python, stepper motors and drivers, basic electronics and machine automation</p></div></section></article><footer><strong>Isaiah Kol</strong><a href="/">Return to portfolio</a></footer></main>;
+  return <main className="resume-page"><Header /><section className="resume-viewer"><div className="resume-toolbar"><div><p className="label">Résumé</p><h1>Isaiah Kol</h1></div><a className="resume-download" href="/IsaiahKolResume.pdf" download>Download PDF ↓</a></div><iframe src="/IsaiahKolResume.pdf" title="Isaiah Kol résumé PDF" /></section><footer><strong>Isaiah Kol</strong><a href="/">Return to portfolio</a></footer></main>;
 }
 
 function NotFound() { return <main className="not-found"><div><p className="label">404</p><h1>Page not found.</h1><p>The project or page you requested does not exist.</p><a className="project-jump" href="/">Return home →</a></div></main>; }
