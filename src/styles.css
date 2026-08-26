@@ -42,3 +42,9 @@ header{position:sticky;top:0;z-index:20;background:rgba(9,9,9,.95);border-bottom
 
 /* Keep carousel media bounded by the fixed viewer instead of its intrinsic size. */
 .carousel-main .main-image-button{display:flex;align-items:center;justify-content:center;min-width:0;min-height:0;overflow:hidden}.carousel-main .main-image-button img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}.carousel-main video{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}.portrait{object-fit:cover;background:transparent}
+
+
+/* Preserve original media proportions inside fixed frames. The portrait intentionally remains cropped. */
+.image-wrap img,.about-placeholder img,.experience-image-button img,.experience-gallery-thumbs img,.main-image-button img,.media-thumbnails img,.detail-gallery img{object-fit:contain;background:#050505}
+.carousel-main video,.experience-gallery-main video,.lightbox-content video{object-fit:contain;background:#000}
+.portrait{object-fit:cover;background:transparent}
