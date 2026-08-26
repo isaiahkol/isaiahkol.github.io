@@ -45,7 +45,7 @@ const roboticsExperienceMedia: MediaItem[] = [
   { type: "video", src: "/media/experience/robotics/intaketest.mov", alt: "VEX intake mechanism test" },
 ];
 
-const placeholderMedia = (paths: string[]): MediaItem[] => paths.map(src => ({ type: "placeholder", src, alt: "Photo placeholder" }));
+const placeholderMedia = (paths: string[]): MediaItem[] => paths.map(src => ({ type: "image", src, alt: "Photo placeholder" }));
 
 type ExperienceSubrole = {
   title: string;
