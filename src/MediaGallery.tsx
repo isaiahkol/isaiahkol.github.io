@@ -8,16 +8,24 @@ type MediaGalleryProps = {
   label?: string;
 };
 
+function useRetryingImage(src: string) {
+  const [attempt, setAttempt] = useState(0);
+  const [retryToken] = useState(() => Date.now());
+  const imageSrc = attempt === 0 ? src : `${src}?retry=${retryToken}`;
+  const handleError = () => setAttempt(current => current + 1);
+  return { imageSrc, missing: attempt > 1, handleError };
+}
+
 function GalleryImage({ media, index, enlarged, onOpen }: { media: MediaItem; index: number; enlarged: boolean; onOpen: (index: number) => void }) {
-  const [missing, setMissing] = useState(false);
+  const { imageSrc, missing, handleError } = useRetryingImage(media.src);
   if (missing) return <div className="media-placeholder"><strong>Photo placeholder</strong><span>public{media.src}</span></div>;
-  return <button className={enlarged ? "lightbox-image-button" : "main-image-button"} onClick={() => onOpen(index)} aria-label={`Open full-size image: ${media.alt}`}><img src={media.src} alt={media.alt} onError={() => setMissing(true)} /></button>;
+  return <button className={enlarged ? "lightbox-image-button" : "main-image-button"} onClick={() => onOpen(index)} aria-label={`Open full-size image: ${media.alt}`}><img src={imageSrc} alt={media.alt} onError={handleError} /></button>;
 }
 
 function GalleryThumbnail({ media, index }: { media: MediaItem; index: number }) {
-  const [missing, setMissing] = useState(false);
+  const { imageSrc, missing, handleError } = useRetryingImage(media.src);
   if (media.type !== "image" || missing) return <span className="video-thumb"><b>{media.type === "youtube" ? "YouTube" : media.type === "video" ? "Video" : "Photo"}</b><small>{index + 1}</small></span>;
-  return <img src={media.src} alt="" onError={() => setMissing(true)} />;
+  return <img src={imageSrc} alt="" onError={handleError} />;
 }
 
 export default function MediaGallery({ items, compact = false, label = "Project" }: MediaGalleryProps) {
