@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import MediaGallery from "./MediaGallery";
-import ExperienceGallery, { type ExperienceMediaItem } from "./ExperienceGallery";
+import MediaGallery, { type MediaItem } from "./MediaGallery";
 import { projectBySlug } from "./project-data";
 
 const featured = [
@@ -26,13 +25,13 @@ function Header({ project = false }: { project?: boolean }) {
   return <header><nav aria-label="Primary navigation"><a className="brand" href="/">Isaiah Kol</a><div className="nav-links"><a href="/#projects">{project ? "All projects" : "Projects"}</a>{!project && <><a href="/#experience">Experience</a><a href="/#about">About</a></>}<a href="/resume">Resume</a>{project && <a href="mailto:isaiahkol37@gmail.com">Contact</a>}</div></nav></header>;
 }
 
-const fablabExperienceMedia: ExperienceMediaItem[] = [
+const fablabExperienceMedia: MediaItem[] = [
   { type: "image", src: "/media/experience/fablab/fab1.jpg", alt: "UVM FabLab main printer bay", caption: "The FabLab’s main printer bay." },
   { type: "image", src: "/media/experience/fablab/fab2.jpg", alt: "UVM FabLab soldering and electronics station", caption: "The FabLab’s self-service soldering and electronics station." },
   { type: "image", src: "/media/experience/fablab/fab3.jpg", alt: "UVM FabLab Filabot recycling system", caption: "The FabLab’s in-house Filabot filament-recycling system." },
 ];
 
-const roboticsExperienceMedia: ExperienceMediaItem[] = [
+const roboticsExperienceMedia: MediaItem[] = [
   { type: "image", src: "/media/experience/robotics/robot6.jpg", alt: "Tuning the competition robot between matches", caption: "Tuning between matches at the 2023 VEX World Championship." },
   { type: "image", src: "/media/experience/robotics/robot1.jpg", alt: "VEX competition robot from junior year" },
   { type: "image", src: "/media/experience/robotics/robot3.jpg", alt: "VEX robot mechanism and assembly" },
@@ -47,9 +46,25 @@ const roboticsExperienceMedia: ExperienceMediaItem[] = [
   { type: "video", src: "/media/experience/robotics/intaketest.mov", alt: "VEX intake mechanism test" },
 ];
 
-const placeholderMedia = (paths: string[]): ExperienceMediaItem[] => paths.map(src => ({ type: "placeholder", src, alt: "Photo placeholder" }));
+const placeholderMedia = (paths: string[]): MediaItem[] => paths.map(src => ({ type: "placeholder", src, alt: "Photo placeholder" }));
 
-const homepageExperience = [
+type ExperienceSubrole = {
+  label: string;
+  summary: string;
+  sections: [string, string][];
+};
+
+type ExperienceEntry = {
+  date: string;
+  role: string;
+  company: string;
+  summary: string;
+  sections?: [string, string][];
+  subroles?: ExperienceSubrole[];
+  media: MediaItem[];
+};
+
+const homepageExperience: ExperienceEntry[] = [
   {
     date: "May 2026 – Aug 2026",
     role: "CNC Machinist Intern",
@@ -68,13 +83,23 @@ const homepageExperience = [
     role: "UVM FabLab",
     company: "Burlington, VT",
     summary: "Lead lab operations, balancing hands-on fabrication with technical direction and final decision making.",
-    sections: [
-      ["Operations Manager · Dec 2025 – Present", "Lead lab operations, balancing hands-on fabrication with technical direction and final decision making."],
-      ["Operations Manager · Maintenance", "Manage preventative maintenance and SOP development across all lab equipment."],
-      ["Operations Manager · Leadership", "Lead biweekly staff meetings to review lab performance, address issues, and implement changes."],
-      ["Operations Manager · Troubleshooting", "Troubleshoot and repair 3D printers and laser cutters, resolving issues escalated by technicians."],
-      ["Technician · Sep 2025 – Dec 2025", "Contributed to 600+ fabrication tickets in one semester, operating FDM/SLA printers and laser cutters."],
-      ["Technician · Technical advising", "Advised students and researchers on CAD, DFM, material selection, and fabrication strategies."],
+    subroles: [
+      {
+        label: "FabLab Operations Manager -- Spring 2026 - Present",
+        summary: "Lead lab operations, balancing hands-on fabrication with technical direction and final decision making.",
+        sections: [
+          ["Maintenance", "Manage preventative maintenance and SOP development across all lab equipment."],
+          ["Leadership", "Lead biweekly staff meetings to review lab performance, address issues, and implement changes."],
+          ["Troubleshooting", "Troubleshoot and repair 3D printers and laser cutters, resolving issues escalated by technicians."],
+        ],
+      },
+      {
+        label: "FabLab Technician -- Sep 2025 - Dec 2025",
+        summary: "Contributed to 600+ fabrication tickets in one semester, operating FDM/SLA printers and laser cutters.",
+        sections: [
+          ["Technical advising", "Advised students and researchers on CAD, DFM, material selection, and fabrication strategies."],
+        ],
+      },
     ],
     media: fablabExperienceMedia,
   },
@@ -109,7 +134,7 @@ const homepageExperience = [
 ];
 
 function ExperienceSection() {
-  return <section className="experience" id="experience"><div className="section-title"><div><h2>Experience</h2></div><p>Click an experience to see more</p></div><div className="experience-list">{homepageExperience.map(item => <details className="experience-item" key={item.role}><summary><span className="date">{item.date}</span><span className="experience-role"><h3>{item.role}</h3><span>{item.company}</span></span><span className="experience-summary">{item.summary}</span><span className="experience-toggle" aria-hidden="true">+</span></summary><div className="experience-expanded"><ExperienceGallery items={item.media} label={item.role} /><div className="experience-copy">{item.sections.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div></div></details>)}</div></section>;
+  return <section className="experience" id="experience"><div className="section-title"><div><h2>Experience</h2></div><p>Click an experience to see more</p></div><div className="experience-list">{homepageExperience.map(item => <details className="experience-item" key={item.role}><summary><span className="date">{item.date}</span><span className="experience-role"><h3>{item.role}</h3><span>{item.company}</span></span><span className="experience-summary">{item.summary}</span><span className="experience-toggle" aria-hidden="true">+</span></summary><div className="experience-expanded"><MediaGallery items={item.media} compact heading="Experience media" label={item.role} />{item.subroles ? <div className="nested-experience-list">{item.subroles.map(subrole => <details className="nested-experience" key={subrole.label}><summary><span><h4>{subrole.label}</h4><p>{subrole.summary}</p></span><span className="nested-experience-toggle" aria-hidden="true">+</span></summary><div className="experience-copy nested-experience-copy">{subrole.sections.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div></details>)}</div> : <div className="experience-copy">{item.sections?.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div>}</div></details>)}</div></section>;
 }
 
 function Home() {
