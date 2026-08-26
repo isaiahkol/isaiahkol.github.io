@@ -40,7 +40,6 @@ const roboticsExperienceMedia: MediaItem[] = [
   { type: "image", src: "/media/experience/robotics/robot2.jpg", alt: "Earlier VEX competition robot" },
   { type: "image", src: "/media/experience/robotics/robot7.jpg", alt: "VEX robot development and testing" },
   { type: "image", src: "/media/experience/robotics/robot8.jpg", alt: "VEX team and competition work" },
-  { type: "video", src: "/media/experience/robotics/expansion.mov", alt: "VEX expansion mechanism test" },
   { type: "video", src: "/media/experience/robotics/discs.mov", alt: "VEX disc-scoring and autonomous development test" },
   { type: "video", src: "/media/experience/robotics/rings.mov", alt: "VEX ring-scoring mechanism test" },
   { type: "video", src: "/media/experience/robotics/intaketest.mov", alt: "VEX intake mechanism test" },
@@ -63,6 +62,8 @@ type ExperienceEntry = {
   sections?: [string, string][];
   subroles?: ExperienceSubrole[];
   media: MediaItem[];
+  context?: string;
+  links?: { label: string; url: string }[];
 };
 
 const homepageExperience: ExperienceEntry[] = [
@@ -78,6 +79,7 @@ const homepageExperience: ExperienceEntry[] = [
       ["Quality control", "Performed QC inspections using GD&T and metrology equipment including CMMs, optical comparators, indicators and precision gaging; verified material/process certifications and traceability."],
     ],
     media: placeholderMedia(["/media/experience/preci-1.jpg", "/media/experience/preci-2.jpg"]),
+    links: [{ label: "Visit Preci Manufacturing", url: "https://www.preci.com/" }],
   },
   {
     date: "Sep 2025 – Present",
@@ -100,11 +102,14 @@ const homepageExperience: ExperienceEntry[] = [
         date: "Sep 2025 – Dec 2025",
         summary: "Contributed to 600+ fabrication tickets in one semester, operating FDM/SLA printers and laser cutters.",
         sections: [
+          ["Machine operation", "Safely and efficiently operated 3D printers and laser cutters to complete fabrication requests from UVM students, faculty, and graduate researchers."],
           ["Technical advising", "Advised students and researchers on CAD, DFM, material selection, and fabrication strategies."],
         ],
       },
     ],
     media: fablabExperienceMedia,
+    context: "The UVM FabLab functions as both a student makerspace and a small manufacturing job shop. Students can use the lab’s 3D printers, laser cutters, and other fabrication equipment for their own projects, while UVM students, faculty, and graduate researchers can also submit designs and specifications for the FabLab team to fabricate. Submitted fabrication requests are completed within two days.",
+    links: [{ label: "Visit the UVM FabLab", url: "https://www.uvm.edu/cems/uvmfablab" }],
   },
   {
     date: "Sep 2017 – Jun 2024",
@@ -136,6 +141,10 @@ const homepageExperience: ExperienceEntry[] = [
     summary: "Developed foundational CAD, manual machining, and manufacturing skills through engineering projects.",
     sections: [["Role", "Developed foundational CAD, manual machining, and manufacturing skills through engineering projects."]],
     media: placeholderMedia(["/media/experience/stem-intern-1.jpg", "/media/experience/stem-intern-2.jpg"]),
+    links: [
+      { label: "Visit Hypertherm", url: "https://www.hypertherm.com/" },
+      { label: "Visit Fujifilm Dimatix", url: "https://www.fujifilm.com/us/en/business/inkjet-solutions/inkjet-technology-integration" },
+    ],
   },
   {
     date: "2022 – 2024",
@@ -148,7 +157,7 @@ const homepageExperience: ExperienceEntry[] = [
 ];
 
 function ExperienceSection() {
-  return <section className="experience" id="experience"><div className="section-title"><div><h2>Experience</h2></div><p>Click an experience to see more</p></div><div className="experience-list">{homepageExperience.map(item => <details className="experience-item" key={item.role}><summary><span className="date">{item.date}</span><span className="experience-role"><h3>{item.role}</h3><span>{item.company}</span></span><span className="experience-summary">{item.summary}</span><span className="experience-toggle" aria-hidden="true">+</span></summary><div className="experience-expanded"><MediaGallery items={item.media} compact label={item.role} />{item.subroles ? <div className="nested-experience-list">{item.subroles.map(subrole => <details className="nested-experience" key={subrole.title}><summary><span><span className="nested-experience-heading"><h4>{subrole.title}</h4><time>{subrole.date}</time></span><p>{subrole.summary}</p></span><span className="nested-experience-toggle" aria-hidden="true">+</span></summary>{subrole.sections.length > 0 && <div className="experience-copy nested-experience-copy">{subrole.sections.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div>}</details>)}</div> : <div className="experience-copy">{item.sections?.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div>}</div></details>)}</div></section>;
+  return <section className="experience" id="experience"><div className="section-title"><div><h2>Experience</h2></div><p>Click an experience to see more</p></div><div className="experience-list">{homepageExperience.map(item => <details className="experience-item" key={item.role}><summary><span className="date">{item.date}</span><span className="experience-role"><h3>{item.role}</h3><span>{item.company}</span></span><span className="experience-summary">{item.summary}</span><span className="experience-toggle" aria-hidden="true">+</span></summary><div className="experience-expanded">{(item.context || item.links) && <div className="experience-context">{item.context && <p>{item.context}</p>}{item.links && <div className="experience-links">{item.links.map(link => <a href={link.url} target="_blank" rel="noreferrer" key={link.url}>{link.label}</a>)}</div>}</div>}<MediaGallery items={item.media} compact label={item.role} />{item.subroles ? <div className="nested-experience-list">{item.subroles.map(subrole => <details className="nested-experience" key={subrole.title}><summary><span><span className="nested-experience-heading"><h4>{subrole.title}</h4><time>{subrole.date}</time></span><p>{subrole.summary}</p></span><span className="nested-experience-toggle" aria-hidden="true">+</span></summary>{subrole.sections.length > 0 && <div className="experience-copy nested-experience-copy">{subrole.sections.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div>}</details>)}</div> : <div className="experience-copy">{item.sections?.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div>}</div></details>)}</div></section>;
 }
 
 function Home() {

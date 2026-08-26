@@ -94,3 +94,13 @@ header{position:sticky;top:0;z-index:20;background:rgba(9,9,9,.95);border-bottom
   .nested-experience-heading{display:block}
   .nested-experience-heading time{display:block;margin:7px 0 0}
 }
+
+
+/* Company context and external website links within expanded experience entries. */
+.experience-context{max-width:920px;margin:0 0 22px;padding:18px 20px;background:#101010;border-left:3px solid var(--yellow)}
+.experience-context>p{margin:0;color:#c5c5c0;font-size:15px;line-height:1.7}
+.experience-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.experience-context:not(:has(>p)) .experience-links{margin-top:0}
+.experience-links a{display:inline-flex;align-items:center;min-height:36px;padding:9px 12px;border:1px solid var(--yellow);color:var(--yellow);font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.experience-links a:hover{background:var(--yellow);color:#090909}
+@media(max-width:800px){.experience-context{padding:16px}.experience-context>p{font-size:14px}.experience-links a{width:100%;justify-content:center}}
