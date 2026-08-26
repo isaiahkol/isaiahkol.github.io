@@ -42,7 +42,7 @@ export default function MediaGallery({ items, compact = false, label = "Project"
 
   const renderMain = (media: MediaItem, index: number, enlarged = false) => {
     if (media.type === "placeholder") return <div className="media-placeholder"><strong>Photo placeholder</strong><span>public{media.src}</span></div>;
-    if (media.type === "image") return <GalleryImage media={media} index={index} enlarged={enlarged} onOpen={setLightbox} />;
+    if (media.type === "image") return <GalleryImage key={media.src} media={media} index={index} enlarged={enlarged} onOpen={setLightbox} />;
     if (media.type === "youtube") return <iframe src={media.src} title={media.alt} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />;
     return <video src={media.src} controls preload="metadata"><a href={media.src}>Download video</a></video>;
   };
