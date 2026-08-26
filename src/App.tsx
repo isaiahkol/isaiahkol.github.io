@@ -69,6 +69,7 @@ type ExperienceEntry = {
 const homepageExperience: ExperienceEntry[] = [
   {
     date: "May 2026 – Aug 2026",
+    context: "Preci Manufacturing is a local subcontract manufacturing facility primarily serving the aerospace industry.",
     role: "CNC Machinist Intern",
     company: "Preci Manufacturing · Winooski, VT",
     summary: "Rotated through turning, 5-axis milling, and quality control in an aerospace manufacturing environment.",
@@ -154,7 +155,7 @@ const homepageExperience: ExperienceEntry[] = [
     company: "Dartmouth College Dining Services",
     summary: "Dartmouth College Dining Services line cook and counterworker.",
     sections: [["High School Job", "Worked for one year doing primarily prep work in the main dining facility on campus, and then was promoted to line cook for another year."],
-               ["Impact", "500+ eggs fried per day | 98% yield (unbroken yolks)"]],
+               ["Impact", "500+ eggs fried per day, ~2% scrap rate (broken yolks)."]],
     media: placeholderMedia(["/media/experience/dartmouth-dining-1.jpg", "/media/experience/dartmouth-dining-2.jpg"]),
   },
 ];
@@ -166,7 +167,7 @@ function ExperienceSection() {
 function Home() {
   return <main id="top"><Header />
     <section className="intro"><div className="intro-copy"><p className="label">Mechanical Engineering · University of Vermont · Class of 2028</p><h1>Isaiah Kol</h1><p className="intro-line">MechE Junior with a background in competitive robotics, experience in lab leadership, and strong interests in <strong>aerospace, manufacturing, and robotics.</strong></p><div className="intro-actions"><a className="project-jump" href="#projects">View projects</a><a className="linkedin-button" href="https://www.linkedin.com/in/isaiahkol" target="_blank" rel="noreferrer"><span aria-hidden="true">in</span> LinkedIn</a></div></div><img className="portrait" src="/media/headshot.jpg" alt="Isaiah Kol" /></section>
-    <section className="projects" id="projects"><div className="section-title"><div><h2>Projects</h2></div><p>Selected mechanical design and fabrication work</p></div><div className="project-grid">{featured.map(project => <a className={`project-card ${project.wide ? "wide" : ""}`} href={project.href} key={project.title}><div className="image-wrap"><img src={project.image} alt={project.title} /><span className="view">View project</span></div><div className="project-info"><p className="kicker">{project.kicker}</p><h3>{project.title}</h3><p className="description">{project.description}</p><div className="tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div></a>)}</div></section>
+    <section className="projects" id="projects"><div className="section-title"><div><h2>Projects</h2></div><p></p></div><div className="project-grid">{featured.map(project => <a className={`project-card ${project.wide ? "wide" : ""}`} href={project.href} key={project.title}><div className="image-wrap"><img src={project.image} alt={project.title} /><span className="view">View project</span></div><div className="project-info"><p className="kicker">{project.kicker}</p><h3>{project.title}</h3><p className="description">{project.description}</p><div className="tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div></a>)}</div></section>
     <ExperienceSection />
     <section className="about" id="about"><div><p className="label">About</p><h2>About me</h2><div className="about-media">{["/media/about/family.jpg", "/media/about/godzilla.jpg"].map(path => <div className="about-placeholder" key={path}><img src={path} alt="Isaiah Kol outside of engineering" onError={event => { event.currentTarget.style.display = "none"; }} /><strong>Photo placeholder</strong><span>public{path}</span></div>)}</div></div><div><p>I’ve been using CAD software and 3D printing on my own equipment since I was about 13, and I was heavily involved in competitive robotics throughout high school. At UVM, I started as a technician and I now run the FabLab, where I manage and operate 3D printers and other fabrication tools, assist students with technical projects, and support university research.</p><p>Through these experiences, I have gained extensive firsthand experience designing mechanical systems, working within real constraints, and rapidly prototyping functional parts and assemblies.</p><p>Outside of engineering, I enjoy biking, camping, skiing, and spending time with my cat, Godzilla.</p><div className="about-links"><a href="mailto:isaiahkol37@gmail.com">Email me</a><a href="https://www.linkedin.com/in/isaiahkol" target="_blank" rel="noreferrer">LinkedIn</a></div></div></section>
     <footer><strong>Isaiah Kol</strong><p>Mechanical Engineering · Burlington, Vermont</p><a href="#top">Back to top</a></footer>
