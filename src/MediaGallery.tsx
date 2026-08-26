@@ -8,6 +8,18 @@ type MediaGalleryProps = {
   label?: string;
 };
 
+function GalleryImage({ media, index, enlarged, onOpen }: { media: MediaItem; index: number; enlarged: boolean; onOpen: (index: number) => void }) {
+  const [missing, setMissing] = useState(false);
+  if (missing) return <div className="media-placeholder"><strong>Photo placeholder</strong><span>public{media.src}</span></div>;
+  return <button className={enlarged ? "lightbox-image-button" : "main-image-button"} onClick={() => onOpen(index)} aria-label={`Open full-size image: ${media.alt}`}><img src={media.src} alt={media.alt} onError={() => setMissing(true)} /></button>;
+}
+
+function GalleryThumbnail({ media, index }: { media: MediaItem; index: number }) {
+  const [missing, setMissing] = useState(false);
+  if (media.type !== "image" || missing) return <span className="video-thumb"><b>{media.type === "youtube" ? "YouTube" : media.type === "video" ? "Video" : "Photo"}</b><small>{index + 1}</small></span>;
+  return <img src={media.src} alt="" onError={() => setMissing(true)} />;
+}
+
 export default function MediaGallery({ items, compact = false, label = "Project" }: MediaGalleryProps) {
   const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState<number | null>(null);
@@ -30,7 +42,7 @@ export default function MediaGallery({ items, compact = false, label = "Project"
 
   const renderMain = (media: MediaItem, index: number, enlarged = false) => {
     if (media.type === "placeholder") return <div className="media-placeholder"><strong>Photo placeholder</strong><span>public{media.src}</span></div>;
-    if (media.type === "image") return <button className={enlarged ? "lightbox-image-button" : "main-image-button"} onClick={() => setLightbox(index)} aria-label={`Open full-size image: ${media.alt}`}><img src={media.src} alt={media.alt} /></button>;
+    if (media.type === "image") return <GalleryImage media={media} index={index} enlarged={enlarged} onOpen={setLightbox} />;
     if (media.type === "youtube") return <iframe src={media.src} title={media.alt} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />;
     return <video src={media.src} controls preload="metadata"><a href={media.src}>Download video</a></video>;
   };
@@ -41,7 +53,7 @@ export default function MediaGallery({ items, compact = false, label = "Project"
     <div className="carousel-controls"><button onClick={previous} aria-label="Previous media">Previous</button><button onClick={next} aria-label="Next media">Next</button></div>
     <div className="media-thumbnails" role="list" aria-label={`Choose ${label.toLowerCase()} media`}>
       {items.map((media, index) => <button className={index === active ? "active" : ""} onClick={() => setActive(index)} key={`${media.src}-${index}`} aria-label={`Show item ${index + 1}: ${media.alt}`} role="listitem">
-        {media.type === "image" ? <img src={media.src} alt="" /> : <span className="video-thumb"><b>{media.type === "youtube" ? "YouTube" : media.type === "video" ? "Video" : "Photo"}</b><small>{index + 1}</small></span>}
+        {<GalleryThumbnail media={media} index={index} />}
       </button>)}
     </div>
     {lightbox !== null && <div className="lightbox" role="dialog" aria-modal="true" aria-label={`Full-size ${label.toLowerCase()} image`} onMouseDown={event => { if (event.target === event.currentTarget) setLightbox(null); }}>
