@@ -18,7 +18,7 @@ const experience = [
 ];
 
 function Header({ project = false }: { project?: boolean }) {
-  return <header><nav aria-label="Primary navigation"><a className="brand" href="/">Isaiah Kol</a><div className="nav-links"><a href="/#projects">{project ? "All projects" : "Projects"}</a>{!project && <><a href="/#experience">Experience</a><a href="/#about">About</a></>}<a href="/resume">Résumé</a>{project && <a href="mailto:isaiahkol37@gmail.com">Contact</a>}</div></nav></header>;
+  return <header><nav aria-label="Primary navigation"><a className="brand" href="/">Isaiah Kol</a><div className="nav-links"><a href="/#projects">{project ? "All projects" : "Projects"}</a>{!project && <><a href="/#experience">Experience</a><a href="/#about">About</a></>}<a href="/resume">Resume</a>{project && <a href="mailto:isaiahkol37@gmail.com">Contact</a>}</div></nav></header>;
 }
 
 const homepageExperience = [
@@ -63,10 +63,10 @@ function ExperienceSection() {
 
 function Home() {
   return <main id="top"><Header />
-    <section className="intro"><div className="intro-copy"><p className="label">Mechanical Engineering · University of Vermont · Class of 2028</p><h1>Isaiah Kol</h1><p className="intro-line">I design, build, and troubleshoot mechanical systems—with a focus on <strong>robotics, manufacturing, and rapid prototyping.</strong></p><div className="intro-actions"><a className="project-jump" href="#projects">View projects <span>↓</span></a><a className="linkedin-button" href="https://www.linkedin.com/in/isaiah-kol/" target="_blank" rel="noreferrer"><span aria-hidden="true">in</span> LinkedIn</a></div></div><img className="portrait" src="/media/headshot.jpg" alt="Isaiah Kol" /></section>
+    <section className="intro"><div className="intro-copy"><p className="label">Mechanical Engineering · University of Vermont · Class of 2028</p><h1>Isaiah Kol</h1><p className="intro-line">I design, build, and troubleshoot mechanical systems—with a focus on <strong>robotics, manufacturing, and rapid prototyping.</strong></p><div className="intro-actions"><a className="project-jump" href="#projects">View projects <span>↓</span></a><a className="linkedin-button" href="https://www.linkedin.com/in/isaiahkol" target="_blank" rel="noreferrer"><span aria-hidden="true">in</span> LinkedIn</a></div></div><img className="portrait" src="/media/headshot.jpg" alt="Isaiah Kol" /></section>
     <section className="projects" id="projects"><div className="section-title"><div><span>01</span><h2>Projects</h2></div><p>Selected mechanical design and fabrication work</p></div><div className="project-grid">{featured.map((project, index) => <a className={`project-card ${project.wide ? "wide" : ""}`} href={project.href} key={project.title}><div className="image-wrap"><img src={project.image} alt={project.title} /><span className="view">View project ↗</span><span className="number">0{index + 1}</span></div><div className="project-info"><p className="kicker">{project.kicker}</p><h3>{project.title}</h3><p className="description">{project.description}</p><div className="tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div></a>)}</div></section>
     <ExperienceSection />
-    <section className="about" id="about"><div><p className="label">About</p><h2>About me</h2></div><div><p>I’ve been using CAD and 3D printing on my own equipment since I was about 13. Today, I’m a junior mechanical engineering student at UVM and help run the university FabLab.</p><p>I’m most interested in work where I can move between CAD, manufacturing, inspection, and physical testing—and where a design has to do more than look good on a screen.</p><div className="about-links"><a href="mailto:isaiahkol37@gmail.com">Email me ↗</a><a href="https://www.linkedin.com/in/isaiah-kol/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div></div></section>
+    <section className="about" id="about"><div><p className="label">About</p><h2>About me</h2></div><div><p>I’ve been using CAD and 3D printing on my own equipment since I was about 13. Today, I’m a junior mechanical engineering student at UVM and help run the university FabLab.</p><p>I’m most interested in work where I can move between CAD, manufacturing, inspection, and physical testing—and where a design has to do more than look good on a screen.</p><div className="about-links"><a href="mailto:isaiahkol37@gmail.com">Email me ↗</a><a href="https://www.linkedin.com/in/isaiahkol" target="_blank" rel="noreferrer">LinkedIn ↗</a></div></div></section>
     <footer><strong>Isaiah Kol</strong><p>Mechanical Engineering · Burlington, Vermont</p><a href="#top">Back to top ↑</a></footer>
   </main>;
 }
@@ -78,7 +78,7 @@ function ProjectPage({ slug }: { slug: string }) {
 }
 
 function Resume() {
-  return <main className="resume-page"><Header /><section className="resume-viewer"><div className="resume-toolbar"><div><p className="label">Résumé</p><h1>Isaiah Kol</h1></div><a className="resume-download" href="/IsaiahKolResume.pdf" download>Download PDF ↓</a></div><iframe src="/IsaiahKolResume.pdf" title="Isaiah Kol résumé PDF" /></section><footer><strong>Isaiah Kol</strong><a href="/">Return to portfolio</a></footer></main>;
+  return <main className="resume-page"><Header /><section className="resume-viewer"><div className="resume-toolbar"><div><p className="label">Resume</p><h1>Isaiah Kol</h1></div><a className="resume-download" href="/IsaiahKolResume.pdf" download>Download PDF ↓</a></div><iframe src="/IsaiahKolResume.pdf" title="Isaiah Kol resume PDF" /></section><footer><strong>Isaiah Kol</strong><a href="/">Return to portfolio</a></footer></main>;
 }
 
 function NotFound() { return <main className="not-found"><div><p className="label">404</p><h1>Page not found.</h1><p>The project or page you requested does not exist.</p><a className="project-jump" href="/">Return home →</a></div></main>; }
@@ -87,7 +87,7 @@ export default function App() {
   const path = window.location.pathname.replace(/\/+$/, "") || "/";
   useEffect(() => {
     const project = path.startsWith("/projects/") ? projectBySlug[path.split("/")[2]] : undefined;
-    document.title = project ? `${project.title} — Isaiah Kol` : path === "/resume" ? "Résumé — Isaiah Kol" : path === "/" ? "Isaiah Kol — Mechanical Engineering Portfolio" : "Page not found — Isaiah Kol";
+    document.title = project ? `${project.title} — Isaiah Kol` : path === "/resume" ? "Resume — Isaiah Kol" : path === "/" ? "Isaiah Kol — Mechanical Engineering Portfolio" : "Page not found — Isaiah Kol";
   }, [path]);
   if (path === "/") return <Home />;
   if (path === "/resume") return <Resume />;

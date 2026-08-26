@@ -25,3 +25,6 @@ header{position:sticky;top:0;z-index:20;background:rgba(9,9,9,.95);border-bottom
 @media print{header,footer,.print-button{display:none!important}body{background:white;color:black}.resume-sheet{max-width:none;margin:0;padding:0;background:white;color:black;border:0}.resume-head,.resume-section{border-color:#999}.resume-head>div>p:last-child,.resume-head address,.resume-entry p,.resume-entry li,.skills-grid p{color:#222}.resume-section>h2{color:#000}.skills-grid strong{color:#000}}
 
 :focus-visible{outline:3px solid var(--yellow);outline-offset:3px}.not-found{min-height:100vh;display:grid;place-items:center;padding:32px;text-align:center}.not-found h1{font-family:var(--heading);font-size:clamp(48px,10vw,100px);margin:0}.not-found p{color:var(--muted)}
+
+/* Keep every photo fully visible inside its existing frame. */
+.portrait,.image-wrap img,.experience-placeholder img,.detail-gallery img,.media-thumbnails img{object-fit:contain;background:#050505}.project-card:hover .image-wrap img{transform:none}
