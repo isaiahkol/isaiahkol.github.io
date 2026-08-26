@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import MediaGallery from "./MediaGallery";
+import ExperienceGallery, { type ExperienceMediaItem } from "./ExperienceGallery";
 import { projectBySlug } from "./project-data";
 
 const featured = [
@@ -25,6 +26,29 @@ function Header({ project = false }: { project?: boolean }) {
   return <header><nav aria-label="Primary navigation"><a className="brand" href="/">Isaiah Kol</a><div className="nav-links"><a href="/#projects">{project ? "All projects" : "Projects"}</a>{!project && <><a href="/#experience">Experience</a><a href="/#about">About</a></>}<a href="/resume">Resume</a>{project && <a href="mailto:isaiahkol37@gmail.com">Contact</a>}</div></nav></header>;
 }
 
+const fablabExperienceMedia: ExperienceMediaItem[] = [
+  { type: "image", src: "/media/experience/fablab/fab1.jpg", alt: "UVM FabLab main printer bay", caption: "The FabLab’s main printer bay." },
+  { type: "image", src: "/media/experience/fablab/fab2.jpg", alt: "UVM FabLab soldering and electronics station", caption: "The FabLab’s self-service soldering and electronics station." },
+  { type: "image", src: "/media/experience/fablab/fab3.jpg", alt: "UVM FabLab Filabot recycling system", caption: "The FabLab’s in-house Filabot filament-recycling system." },
+];
+
+const roboticsExperienceMedia: ExperienceMediaItem[] = [
+  { type: "image", src: "/media/experience/robotics/robot6.jpg", alt: "Tuning the competition robot between matches", caption: "Tuning between matches at the 2023 VEX World Championship." },
+  { type: "image", src: "/media/experience/robotics/robot1.jpg", alt: "VEX competition robot from junior year" },
+  { type: "image", src: "/media/experience/robotics/robot3.jpg", alt: "VEX robot mechanism and assembly" },
+  { type: "image", src: "/media/experience/robotics/robot4.jpg", alt: "VEX competition robot detail" },
+  { type: "image", src: "/media/experience/robotics/robot5.jpg", alt: "VEX competition robot at an event" },
+  { type: "image", src: "/media/experience/robotics/robot2.jpg", alt: "Earlier VEX competition robot" },
+  { type: "image", src: "/media/experience/robotics/robot7.jpg", alt: "VEX robot development and testing" },
+  { type: "image", src: "/media/experience/robotics/robot8.jpg", alt: "VEX team and competition work" },
+  { type: "video", src: "/media/experience/robotics/expansion.mov", alt: "VEX expansion mechanism test" },
+  { type: "video", src: "/media/experience/robotics/discs.mov", alt: "VEX disc-scoring and autonomous development test" },
+  { type: "video", src: "/media/experience/robotics/rings.mov", alt: "VEX ring-scoring mechanism test" },
+  { type: "video", src: "/media/experience/robotics/intaketest.mov", alt: "VEX intake mechanism test" },
+];
+
+const placeholderMedia = (paths: string[]): ExperienceMediaItem[] => paths.map(src => ({ type: "placeholder", src, alt: "Photo placeholder" }));
+
 const homepageExperience = [
   {
     date: "May 2026 – Aug 2026",
@@ -37,7 +61,7 @@ const homepageExperience = [
       ["Automation", "Supported implementation of automation, verifying workholding, part handling, and process repeatability."],
       ["Quality control", "Performed QC inspections using GD&T and metrology equipment including CMMs, optical comparators, indicators and precision gaging; verified material/process certifications and traceability."],
     ],
-    photoPaths: ["/media/experience/preci-1.jpg", "/media/experience/preci-2.jpg"],
+    media: placeholderMedia(["/media/experience/preci-1.jpg", "/media/experience/preci-2.jpg"]),
   },
   {
     date: "Dec 2025 – Present",
@@ -49,7 +73,7 @@ const homepageExperience = [
       ["Leadership", "Lead biweekly staff meetings to review lab performance, address issues, and implement changes."],
       ["Troubleshooting", "Troubleshoot and repair 3D printers and laser cutters, resolving issues escalated by technicians."],
     ],
-    photoPaths: ["/media/experience/fablab-1.jpg", "/media/experience/fablab-2.jpg"],
+    media: fablabExperienceMedia,
   },
   {
     date: "Sep 2025 – Dec 2025",
@@ -59,7 +83,7 @@ const homepageExperience = [
     sections: [
       ["Technical advising", "Advised students and researchers on CAD, DFM, material selection, and fabrication strategies."],
     ],
-    photoPaths: ["/media/experience/fablab-technician-1.jpg", "/media/experience/fablab-technician-2.jpg"],
+    media: fablabExperienceMedia,
   },
   {
     date: "Aug 2023 – Jun 2024",
@@ -67,7 +91,7 @@ const homepageExperience = [
     company: "Thetford, VT",
     summary: "Mentored students aged 12-18 in CAD, design process, safe fabrication, and competition strategy.",
     sections: [["Role", "Mentored students aged 12-18 in CAD, design process, safe fabrication, and competition strategy."]],
-    photoPaths: ["/media/experience/vex-coach-1.jpg", "/media/experience/vex-coach-2.jpg"],
+    media: roboticsExperienceMedia,
   },
   {
     date: "Sep 2017 – Jun 2023",
@@ -78,7 +102,7 @@ const homepageExperience = [
       ["Responsibilities", "Shared responsibility for robot design, fabrication, controls, and documentation on a two-person team."],
       ["Competition record", "Four-time VEX World Championship competitor; 2023 NH/VT State Champion; recipient of three Design Awards and three Excellence Awards at the regional (NH/VT) level."],
     ],
-    photoPaths: ["/media/experience/vex-1.jpg", "/media/experience/vex-2.jpg"],
+    media: roboticsExperienceMedia,
   },
   {
     date: "Aug 2021 – Jan 2022",
@@ -86,7 +110,7 @@ const homepageExperience = [
     company: "Hypertherm & Fujifilm Dimatix · Lebanon, NH",
     summary: "Developed foundational CAD, manual machining, and manufacturing skills through engineering projects.",
     sections: [["Role", "Developed foundational CAD, manual machining, and manufacturing skills through engineering projects."]],
-    photoPaths: ["/media/experience/stem-intern-1.jpg", "/media/experience/stem-intern-2.jpg"],
+    media: placeholderMedia(["/media/experience/stem-intern-1.jpg", "/media/experience/stem-intern-2.jpg"]),
   },
   {
     date: "2022 – 2024",
@@ -94,12 +118,12 @@ const homepageExperience = [
     company: "Dartmouth College Dining Services",
     summary: "Dartmouth College Dining Services line cook and counterworker.",
     sections: [["Role", "Additional details to be added."]],
-    photoPaths: ["/media/experience/dartmouth-dining-1.jpg", "/media/experience/dartmouth-dining-2.jpg"],
+    media: placeholderMedia(["/media/experience/dartmouth-dining-1.jpg", "/media/experience/dartmouth-dining-2.jpg"]),
   },
 ];
 
 function ExperienceSection() {
-  return <section className="experience" id="experience"><div className="section-title"><div><h2>Experience</h2></div><p>Click an experience to see more</p></div><div className="experience-list">{homepageExperience.map(item => <details className="experience-item" key={item.role}><summary><span className="date">{item.date}</span><span className="experience-role"><h3>{item.role}</h3><span>{item.company}</span></span><span className="experience-summary">{item.summary}</span><span className="experience-toggle" aria-hidden="true">+</span></summary><div className="experience-expanded"><div className="experience-media">{item.photoPaths.map(path => <div className="experience-placeholder" key={path}><img src={path} alt={`${item.role} experience`} onError={event => { event.currentTarget.style.display = "none"; }} /><strong>Photo placeholder</strong><span>public{path}</span></div>)}</div><div className="experience-copy">{item.sections.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div></div></details>)}</div></section>;
+  return <section className="experience" id="experience"><div className="section-title"><div><h2>Experience</h2></div><p>Click an experience to see more</p></div><div className="experience-list">{homepageExperience.map(item => <details className="experience-item" key={item.role}><summary><span className="date">{item.date}</span><span className="experience-role"><h3>{item.role}</h3><span>{item.company}</span></span><span className="experience-summary">{item.summary}</span><span className="experience-toggle" aria-hidden="true">+</span></summary><div className="experience-expanded"><ExperienceGallery items={item.media} label={item.role} /><div className="experience-copy">{item.sections.map(([title, body]) => <section key={title}><h4>{title}</h4><p>{body}</p></section>)}</div></div></details>)}</div></section>;
 }
 
 function Home() {
