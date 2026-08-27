@@ -143,7 +143,7 @@ const homepageExperience: ExperienceEntry[] = [
     context: "Selected for a semester long coop/internship program alongside 7 other local STEM students with time split evenly between two local companies. Introduction to real industry work, Lean Manufacturing & Six Sigma, engineering design process, CAD, and manual machining.",
     summary: "Developed foundational CAD, manual machining, and manufacturing skills through engineering projects.",
     sections: [["Overview", "Developed foundational CAD, manual machining, and manufacturing skills through engineering projects."]],
-    media: placeholderMedia(["/media/experience/stem-intern-1.jpg", "/media/experience/stem-intern-2.jpg"]),
+    media: placeholderMedia(["/media/experience/stem-intern-1.jpg", "/media/experience/stem-intern-2.jpg", "/media/experience/stem-intern-3.jpg"]),
     links: [
       { label: "Visit Hypertherm's Website", url: "https://www.hypertherm.com/" },
       { label: "Visit Fujifilm Dimatix's Website", url: "https://www.fujifilm.com/us/en/business/inkjet-solutions/inkjet-technology-integration" },
