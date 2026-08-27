@@ -156,7 +156,7 @@ const homepageExperience: ExperienceEntry[] = [
     summary: "Dartmouth College Dining Services line cook and counterworker.",
     sections: [["High School Job", "Worked for one year doing primarily prep work in the main dining facility on campus, and then was promoted to line cook for another year."],
                ["Impact", "500+ eggs fried per day, ~2% scrap rate (broken yolks)."]],
-    media: placeholderMedia(["/media/experience/dartmouth-dining-1.jpg", "/media/experience/dartmouth-dining-2.jpg"]),
+    media: placeholderMedia(["/media/experience/dartmouth-dining-1.jpg"]),
   },
 ];
 
