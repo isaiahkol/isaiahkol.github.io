@@ -28,7 +28,7 @@ export default function ExperienceGallery({ items, label }: { items: ExperienceM
   }, [lightbox, items.length]);
 
   const renderItem = (media: ExperienceMediaItem, index: number, enlarged = false) => {
-    if (media.type === "placeholder") return <div className="experience-gallery-placeholder"><strong>Photo placeholder</strong><span>public{media.src}</span></div>;
+    if (media.type === "placeholder") return <div className="experience-gallery-placeholder"><span>public{media.src}</span></div>;
     if (media.type === "video") return <video src={media.src} controls preload="metadata"><a href={media.src}>Download video</a></video>;
     return <button className={enlarged ? "lightbox-image-button" : "experience-image-button"} onClick={() => setLightbox(index)} aria-label={`Open full-size image: ${media.alt}`}><img src={media.src} alt={media.alt} /></button>;
   };
