@@ -69,7 +69,7 @@ type ExperienceEntry = {
 const homepageExperience: ExperienceEntry[] = [
   {
     date: "May 2026 – Aug 2026",
-    context: "Preci Manufacturing is a local subcontract manufacturing facility primarily serving the aerospace industry.",
+    context: "Preci Manufacturing is a local subcontract manufacturing facility primarily serving the aerospace industry. I have no photos from inside the building due to compliance with ITAR restrictions, but their website includes a photo of the CMMs in the QC room so I've included that here too.",
     role: "CNC Machinist Intern",
     company: "Preci Manufacturing · Winooski, VT",
     summary: "Rotated through turning, 5-axis milling, and quality control in an aerospace manufacturing environment.",
