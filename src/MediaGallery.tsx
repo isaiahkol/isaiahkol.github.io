@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export type MediaItem = { type: "image" | "video" | "youtube" | "placeholder"; src: string; alt: string; caption?: string };
+export type MediaItem = { type: "image" | "video" | "youtube" | "placeholder"; src: string; alt: string; caption?: string; hideCaption?: boolean };
 
 type MediaGalleryProps = {
   items: MediaItem[];
@@ -18,7 +18,7 @@ function useRetryingImage(src: string) {
 
 function GalleryImage({ media, index, enlarged, onOpen }: { media: MediaItem; index: number; enlarged: boolean; onOpen: (index: number) => void }) {
   const { imageSrc, missing, handleError } = useRetryingImage(media.src);
-  if (missing) return <div className="media-placeholder"><strong>Photo placeholder</strong><span>public{media.src}</span></div>;
+  if (missing) return <div className="media-placeholder"><span>public{media.src}</span></div>;
   return <button className={enlarged ? "lightbox-image-button" : "main-image-button"} onClick={() => onOpen(index)} aria-label={`Open full-size image: ${media.alt}`}><img src={imageSrc} alt={media.alt} onError={handleError} /></button>;
 }
 
@@ -49,7 +49,7 @@ export default function MediaGallery({ items, compact = false, label = "Project"
   }, [lightbox, items.length]);
 
   const renderMain = (media: MediaItem, index: number, enlarged = false) => {
-    if (media.type === "placeholder") return <div className="media-placeholder"><strong>Photo placeholder</strong><span>public{media.src}</span></div>;
+    if (media.type === "placeholder") return <div className="media-placeholder"><span>public{media.src}</span></div>;
     if (media.type === "image") return <GalleryImage key={media.src} media={media} index={index} enlarged={enlarged} onOpen={setLightbox} />;
     if (media.type === "youtube") return <iframe src={media.src} title={media.alt} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />;
     return <video src={media.src} controls preload="metadata"><a href={media.src}>Download video</a></video>;
@@ -57,7 +57,7 @@ export default function MediaGallery({ items, compact = false, label = "Project"
 
   return <section className={`media-section${compact ? " compact" : ""}`} aria-label={`${label} media gallery`}>
     <div className="carousel-main">{renderMain(item, active)}{item.type === "image" && <span className="zoom-hint">Click to enlarge</span>}</div>
-    {(item.caption || compact) && <p className="media-caption">{item.caption || item.alt}</p>}
+    {(!item.hideCaption && (item.caption || compact)) && <p className="media-caption">{item.caption || item.alt}</p>}
     <div className="carousel-controls"><button onClick={previous} aria-label="Previous media">Previous</button><button onClick={next} aria-label="Next media">Next</button></div>
     <div className="media-thumbnails" role="list" aria-label={`Choose ${label.toLowerCase()} media`}>
       {items.map((media, index) => <button className={index === active ? "active" : ""} onClick={() => setActive(index)} key={`${media.src}-${index}`} aria-label={`Show item ${index + 1}: ${media.alt}`} role="listitem">
