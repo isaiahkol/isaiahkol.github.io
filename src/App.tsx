@@ -123,7 +123,7 @@ const homepageExperience: ExperienceEntry[] = [
       {
         title: "Gap Year: VEX Robotics Team Coach",
         date: "Aug 2023 – Jun 2024",
-        sections: ["Impact", "Mentored students aged 12-18 in CAD, design process, safe fabrication, and competition strategy."],
+        sections: [["Impact", "Mentored students aged 12-18 in CAD, design process, safe fabrication, and competition strategy."]],
       },
       {
         title: "VEX Robotics Team Member",
