@@ -14,7 +14,7 @@ export const projects: Project[] = [
     active: true,
     statusText: "Ongoing development—ask me about it!.",
     images: [{ src: "/media/robot-arm/6dofrobotarm.JPEG", alt: "" }],
-    //facts: [["Degrees of Freedom", "6"], ["Cycloidal Reduction", "21:1"], ["Control", "Arduino Mega"], ["Motor drivers", "DM542TE"]],
+    facts: [["Degrees of Freedom", "6"], ["Cycloidal Reduction", "21:1"], ["Control", "Arduino Mega"], ["Motor drivers", "DM542TE"]],
     overview: ["I started this project to apply mechanism design, CAD, fabrication, electronics, and controls to one complete mechanical system. The current arm is operational in open loop and can be jogged from my keyboard. Absolute position feedback, and higher level motion control remain planned improvements for this semester."],
     sections: [
       { title: "Mechanical design", body: ["Each joint uses a custom 21:1 cycloidal drive. Two of the larger joints also use belt reductions to increase available torque while keeping the motors close to the base. The structure and gearbox housings were modeled in SOLIDWORKS and iteratively printed. I designed around realistic print tolerances, bearing placement, fastener access, and the different torque requirements at each joint."] },
