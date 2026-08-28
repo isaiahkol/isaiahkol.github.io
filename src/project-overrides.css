@@ -1,0 +1,4 @@
+/* Project-page overrides */
+.detail-page .facts {
+  display: none;
+}
