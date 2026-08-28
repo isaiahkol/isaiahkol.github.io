@@ -12,10 +12,10 @@ export const projects: Project[] = [
     slug: "robot-arm", title: "6-DOF Robot Arm", category: "Robotics · Independent Project", date: "March 2026 — Present",
     summary: "A six-axis robotic arm designed and built around custom cycloidal gearboxes, open-loop stepper control, and 3D-printed structural components.",
     active: true,
-    statusText: "Ongoing development — ask me about it!.",
-    images: [{ src: "/media/cycloidal-drive/1cycloidv3.jpg", alt: "Cycloidal joint drive developed for the robot arm" }, { src: "/media/cycloidal-drive/2cycloidv3.jpg", alt: "Another cycloidal gearbox prototype" }],
-    facts: [["Degrees of freedom", "6"], ["Cycloidal Reduction", "21:1"], ["Control", "Arduino Mega"], ["Motor drivers", "DM542TE"]],
-    overview: ["I started this project to apply mechanism design, CAD, fabrication, electronics, and controls to one complete mechanical system.", "The current arm is operational in open loop and can be jogged from a computer keyboard. Absolute position feedback, and higher-level motion control remain planned improvements for this semester."],
+    statusText: "Ongoing development—ask me about it!.",
+    images: [{ src: "/media/robot-arm/6dofrobotarm.JPEG", alt: "" }],
+    facts: [["Degrees of Freedom", "6"], ["Cycloidal Reduction", "21:1"], ["Control", "Arduino Mega"], ["Motor drivers", "DM542TE"]],
+    overview: ["I started this project to apply mechanism design, CAD, fabrication, electronics, and controls to one complete mechanical system.", "The current arm is operational in open loop and can be jogged from my keyboard. Absolute position feedback, and higher level motion control remain planned improvements for this semester."],
     sections: [
       { title: "Mechanical design", body: ["Each joint uses a custom 21:1 cycloidal drive. Two of the larger joints also use belt reductions to increase available torque while keeping the motors close to the base.", "The structure and gearbox housings were modeled in SOLIDWORKS and iteratively printed. I designed around realistic print tolerances, bearing placement, fastener access, and the different torque requirements at each joint."] },
       { title: "Iteration", body: ["So far, I have made two robot arms, the first draft (Black & Grey) technically functioned, but between the poor weight distribution and more severe backlash issues of my earlier cycloidal drive designs, precision movement was not really possible, and so I decided to take what I learned and start fresh. My new design has 6 motors rather than the previous 8, and I selected them by weight and torque output specially for each joint, rather than using the same steppers across the board. Between that and utilizing belt drives on certain joints, I was able to substantially improve the manuverability and load capacity of the arm. I started this project with just components I had gotten from scrapping old 3d printers, but after my first prototype I felt that I had graduated from those steppers and particularly their finnicky A4988 drivers. The new power/control box I designed includes a PSU with about double the amperage, silent and smooth digital stepper drivers, and a much more capable Arduino mega. "]},
@@ -24,19 +24,26 @@ export const projects: Project[] = [
       { title: "Next Steps", body: ["Closed loop control and inverse kinematocs are the first things I'm going to be implementing here during this school year. Additionally I'm going to be experimenting with CNC milling to develop stronger and more precise cycloidal drives, and so I hope to implement those as well."]}
     ], tools: ["SolidWorks", "Arduino", "Python", "FDM 3D Printing", "DM542TE Drivers", "Stepper Motors"],
     media: [
-      { type: "image", src: "/media/cycloidal-drive/1cycloidv3.jpg", alt: "Cycloidal gearbox used for the robot-arm joints" },
-      { type: "image", src: "/media/cycloidal-drive/2cycloidv3.jpg", alt: "Compact gearbox prototype" },
-      { type: "image", src: "/media/cycloidal-drive/3cycloidv3.jpg", alt: "Cycloidal drive component view" },
-      { type: "image", src: "/media/cycloidal-drive/4cycloidv3.jpg", alt: "Cycloidal drive assembly view" }
+      { type: "youtube", src: "https://www.youtube-nocookie.com/embed/gqsfKWtIOGQ", alt: "6 DOF Robot Arm Initial Testing Video" }
+      { type: "image", src: "/media/robot-arm/6dofrobotarm.JPEG", alt: "robot arm and curious godzilla" },
+      { type: "image", src: "/media/robot-arm/assem1.jpg", alt: "current SOLIDWORKS assembly" },
+      { type: "image", src: "/media/robot-arm/robotcurrent1.JPEG", alt: "robot arm caught mouse toy" },
+      { type: "image", src: "/media/robot-arm/claw.JPEG", alt: "claw" },
+      { type: "image", src: "/media/robot-arm/clawtesting.JPEG", alt: "claw servo testing" },
+      { type: "image", src: "/media/robot-arm/psu3.JPEG", alt: "psu3" },
+      { type: "image", src: "/media/robot-arm/psu2.JPEG", alt: "psu2" },
+      { type: "image", src: "/media/robot-arm/psu1.JPEG", alt: "psu1" },
+      { type: "image", src: "/media/robot-arm/newbotoldpsu.JPEG", alt: "new bot old psu" },
+      { type: "image", src: "/media/robot-arm/oldbot.JPEG", alt: "first robot arm prototype" },
     ]
   },
   {
     slug: "cycloidal-drive", title: "Cycloidal Drive", category: "Gearbox Design · Independent Project", date: "January 2026 — Present",
     summary: "A compact 21:1 cycloidal gearbox designed from scratch as the primary joint reducer for a six-axis robot arm.",
     active: true,
-    statusText: "Ongoing development — ask me about it!",
+    statusText: "Ongoing development—ask me about it!",
     mediaNote: "Media is arranged in reverse chronological order, beginning with the latest iteration.",
-    images: [{ src: "/media/cycloidal-drive/1cycloidv3.jpg", alt: "Assembled cycloidal gearbox prototype" }, { src: "/media/cycloidal-drive/2cycloidv3.jpg", alt: "Compact cycloidal gearbox prototype" }],
+    images: [{ src: "/media/cycloidal-drive/1cycloidv3.jpg", alt: "Assembled cycloidal gearbox prototype" }],
     facts: [["Reduction", "21:1"], ["Cycloidal lobes", "21"], ["Housing pins", "22"], ["Output pins", "7"]],
     overview: ["I became interested in cycloidal drives because they provide high reduction in a compact package and frankly I found the mechanism to be incredibly satisfying to watch and knew had to design one myself. At the start of this project I knew I wanted to make a robot arm, and while I was aware that cycloidal drives are particularly suited for robotic actuators, this did start off as a seperate project.", "The current design uses two cycloidal discs, bearings at the output and eccentric shaft, steel pins, and a NEMA 17 stepper motor. Multiple generations were printed and tested before the design was ever integrated into the arm. Additionally, a constraint I set for myself on this project was that I wanted to be able to manufacture it in my apartment on my own equipment (or at the UVM FabLab). While I could certainly achieve better tolerances and higher efficiency from ordering custom machined parts, I wanted the manufacturing process to be part of the experience of this project."],
     sections: [
