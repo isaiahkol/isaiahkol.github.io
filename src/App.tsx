@@ -3,7 +3,7 @@ import MediaGallery, { type MediaItem } from "./MediaGallery";
 import { projectBySlug } from "./project-data";
 
 const featured = [
-  { title: "6-DOF Robot Arm", kicker: "Current project · Robotics", active: true, image: "/media/cycloidal-drive/1cycloidv3.jpg", href: "/projects/robot-arm", wide: true, description: "A six-axis arm built around custom cycloidal joint drives, stepper control, and iterative FDM prototypes.", tags: ["SolidWorks", "Arduino", "Mechanism Design"] },
+  { title: "6-DOF Robot Arm", kicker: "Current project · Robotics", active: true, image: "/media/robot-arm/6dofrobotarm.JPEG", href: "/projects/robot-arm", wide: true, description: "A six-axis arm built around custom cycloidal joint drives, stepper control, and iterative FDM prototypes.", tags: ["SolidWorks", "Arduino", "Mechanism Design"] },
   { title: "Cycloidal Drive", kicker: "21:1 reduction · Gearbox design", active: true, image: "/media/cycloidal-drive/v4.jpg", href: "/projects/cycloidal-drive", description: "Compact, low-backlash gearboxes designed from scratch for every joint of the robot arm.", tags: ["Equation-driven CAD", "FDM", "Prototyping"] },
   { title: "Star Wars Marble Run", kicker: "Mechanism design", image: "/media/marble-run/marble1.jpg", href: "/projects/marble-run", description: "A 600 mm dual-path machine with a powered elevator, launcher, and nearly 5 kg of printed parts.", tags: ["SolidWorks", "Arduino", "Team Project"] },
   { title: "Wind-Up Mouse Droid", kicker: "Spring-powered drivetrain", image: "/media/mouse-droid/wind0.jpg", href: "/projects/mouse-droid", description: "A functional PETG model powered by a custom ratchet, torsion spring, and manually designed gear train.", tags: ["Gear Design", "DFAM", "PETG"] },
