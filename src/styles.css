@@ -112,3 +112,8 @@ header{position:sticky;top:0;z-index:20;background:rgba(9,9,9,.95);border-bottom
 .active-project-status{display:flex;align-items:center;gap:13px;margin:0 0 22px}.active-project-status p{margin:0;color:#c7c7c2;font-size:12px;line-height:1.45}
 .media-order-note{margin:0;padding:11px 14px;border:1px solid var(--line);border-bottom:0;color:#b9b9b4;font-size:11px;line-height:1.5}
 @media(max-width:800px){.active-project-status{align-items:flex-start;flex-direction:column;gap:9px}.media-order-note{font-size:10px}}
+
+
+/* Breathing room between project galleries and the first content divider. */
+.detail-page .media-section{margin-bottom:40px}
+@media(max-width:800px){.detail-page .media-section{margin-bottom:30px}}
