@@ -24,7 +24,7 @@ export const projects: Project[] = [
       { title: "Next Steps", body: ["Closed loop control and inverse kinematocs are the first things I'm going to be implementing here during this school year. Additionally I'm going to be experimenting with CNC milling to develop stronger and more precise cycloidal drives, and so I hope to implement those as well."]}
     ], tools: ["SolidWorks", "Arduino", "Python", "FDM 3D Printing", "DM542TE Drivers", "Stepper Motors"],
     media: [
-      { type: "youtube", src: "https://www.youtube-nocookie.com/embed/gqsfKWtIOGQ", alt: "6 DOF Robot Arm Initial Testing Video" }
+      { type: "youtube", src: "https://www.youtube-nocookie.com/embed/gqsfKWtIOGQ", alt: "6 DOF Robot Arm Initial Testing Video" },
       { type: "image", src: "/media/robot-arm/6dofrobotarm.JPEG", alt: "robot arm and curious godzilla" },
       { type: "image", src: "/media/robot-arm/assem1.jpg", alt: "current SOLIDWORKS assembly" },
       { type: "image", src: "/media/robot-arm/robotcurrent1.JPEG", alt: "robot arm caught mouse toy" },
