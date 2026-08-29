@@ -101,7 +101,7 @@ const homepageExperience: ExperienceEntry[] = [
       },
       {
         title: "FabLab Technician",
-        date: "Sep 2025 – Dec 2025",
+        date: "Fall 2025",
         summary: "",
         sections: [
           ["Impact", "Contributed to 600+ fabrication tickets in one semester, operating FDM/SLA printers and laser cutters."],
