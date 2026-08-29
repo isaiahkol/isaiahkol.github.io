@@ -3,17 +3,17 @@ import MediaGallery, { type MediaItem } from "./MediaGallery";
 import { projectBySlug } from "./project-data";
 
 const featured = [
-  { title: "6-DOF Robot Arm", kicker: "Current project · Robotics", active: true, image: "/media/robot-arm/6dofrobotarm.JPEG", href: "/projects/robot-arm", wide: true, description: "A six-axis arm built around custom cycloidal joint drives, stepper control, and iterative FDM prototypes.", tags: ["SolidWorks", "Arduino", "Mechanism Design"] },
+  { title: "6-DOF Robot Arm", kicker: "Current project · Robotics", active: true, image: "/media/robot-arm/6dofrobotarm.JPEG", href: "/projects/robot-arm", wide: true, description: "A six-axis arm built around custom cycloidal joint drives, stepper control, and iterative FDM prototypes.", tags: ["SOLIDWORKS", "Arduino", "Mechanism Design"] },
   { title: "Cycloidal Drive", kicker: "21:1 reduction · Gearbox design", active: true, image: "/media/cycloidal-drive/v4.jpg", href: "/projects/cycloidal-drive", description: "Compact, low-backlash gearboxes designed from scratch for every joint of the robot arm.", tags: ["Equation-driven CAD", "FDM", "Prototyping"] },
-  { title: "Star Wars Marble Run", kicker: "Mechanism design", image: "/media/marble-run/marble1.jpg", href: "/projects/marble-run", description: "A 600 mm dual-path machine with a powered elevator, launcher, and nearly 5 kg of printed parts.", tags: ["SolidWorks", "Arduino", "Team Project"] },
+  { title: "Star Wars Marble Run", kicker: "Mechanism design", image: "/media/marble-run/marble1.jpg", href: "/projects/marble-run", description: "A 600 mm dual-path machine with a powered elevator, launcher, and nearly 5 kg of printed parts.", tags: ["SOLIDWORKS", "Arduino", "Team Project"] },
   { title: "Wind-Up Mouse Droid", kicker: "Spring-powered drivetrain", image: "/media/mouse-droid/wind0.jpg", href: "/projects/mouse-droid", description: "A functional PETG model powered by a custom ratchet, torsion spring, and manually designed gear train.", tags: ["Gear Design", "DFAM", "PETG"] },
   { title: "Filament Recycler Spool Holder", kicker: "FabLab · Production tooling", image: "/media/filament-spool-holder/filabot3.jpg", href: "/projects/filament-spool-holder", description: "A replacement attachment that made generic spools work reliably with the FabLab’s Filabot system.", tags: ["Reverse Engineering", "PETG", "Iteration"] },
   { title: "1981 Yamaha Virago Rebuild", kicker: "Mechanical troubleshooting", image: "/media/virago-rebuild/virago1.jpg", href: "/projects/virago-rebuild", description: "Rebuilt a non-running motorcycle through electrical diagnosis, carburetor repair, and starter redesign.", tags: ["Diagnostics", "Electrical", "Engines"] },
 ];
 
 const experience = [
-  { company: "Preci Manufacturing · Winooski, VT", role: "CNC Machinist Intern", date: "May 2026 – Aug 2026", bullets: ["Rotated through turning, 5-axis milling, and quality control in an aerospace manufacturing environment.", "Executed CNC setups, assembling tooling and workholding, and adjusting geometry for first-off inspection.", "Inspected parts and adjusted tool offsets during production to maintain tolerances as tight as ± 0.0001\".", "Supported implementation of automation, verifying workholding, part handling, and process repeatability.", "Performed QC inspections using GD&T and metrology equipment including CMMs, optical comparators, indicators and precision gaging; verified material/process certifications and traceability."] },
-  { company: "UVM FabLab · Burlington, VT", role: "Operations Manager", date: "Dec 2025 – Present", bullets: ["Lead lab operations, balancing hands-on fabrication with technical direction and final decision making.", "Manage preventative maintenance and SOP development across all lab equipment.", "Lead biweekly staff meetings to review lab performance, address issues, and implement changes.", "Troubleshoot and repair 3D printers and laser cutters, resolving issues escalated by technicians."] },
+  { company: "Preci Manufacturing · Winooski, VT", role: "CNC Machinist Intern", date: "May 2026 – Aug 2026", bullets: ["Rotated through turning, 5-axis milling, and quality control in an aerospace manufacturing environment.", "Executed CNC setups, assembling tooling and workholding, and adjusting geometry for first-off inspection.", "Inspected parts and adjusted tool offsets during production to maintain tolerances as tight as ±0.0001 in.", "Supported implementation of automation, verifying workholding, part handling, and process repeatability.", "Performed QC inspections using GD&T and metrology equipment including CMMs, optical comparators, indicators, and precision gaging; verified material/process certifications and traceability."] },
+  { company: "UVM FabLab · Burlington, VT", role: "Operations Manager", date: "Dec 2025 – Present", bullets: ["Lead lab operations, balancing hands-on fabrication with technical direction and final decision-making.", "Manage preventive maintenance and SOP development across all lab equipment.", "Lead biweekly staff meetings to review lab performance, address issues, and implement changes.", "Troubleshoot and repair 3D printers and laser cutters, resolving issues escalated by technicians."] },
   { company: "UVM FabLab · Burlington, VT", role: "Technician", date: "Sep 2025 – Dec 2025", bullets: ["Contributed to 600+ fabrication tickets in one semester, operating FDM/SLA printers and laser cutters.", "Advised students and researchers on CAD, DFM, material selection, and fabrication strategies."] },
   { company: "Thetford, VT", role: "Gap-Year: VEX Robotics Team Coach", date: "Aug 2023 – Jun 2024", bullets: ["Mentored students aged 12-18 in CAD, design process, safe fabrication, and competition strategy."] },
   { company: "VEX Robotics Team 4886-B · Various Locations, USA", role: "Team Member", date: "Sep 2017 – Jun 2023", bullets: ["Shared responsibility for robot design, fabrication, controls, and documentation on a two-person team.", "Four-time VEX World Championship competitor; 2023 NH/VT State Champion; recipient of three Design Awards and three Excellence Awards at the regional (NH/VT) level."] },
@@ -69,15 +69,15 @@ type ExperienceEntry = {
 const homepageExperience: ExperienceEntry[] = [
   {
     date: "May 2026 – Aug 2026",
-    context: "Preci Manufacturing is a local subcontract manufacturing facility primarily serving the aerospace industry. I have no photos from inside the building due to compliance with ITAR restrictions, but their website includes a photo of the CMMs in the QC room so I've included that here too.",
+    context: "Preci Manufacturing is a precision contract manufacturer primarily serving the aerospace industry. Photography inside the facility was restricted due to the nature of the aerospace and defense work. One facility image shown here is sourced from Preci’s public website.",
     role: "CNC Machinist Intern",
     company: "Preci Manufacturing · Winooski, VT",
     summary: "Rotated through turning, 5-axis milling, and quality control in an aerospace manufacturing environment.",
     sections: [
       ["CNC setups", "Executed CNC setups, assembling tooling and workholding, and adjusting geometry for first-off inspection."],
-      ["Production", "Inspected parts and adjusted tool offsets during production to maintain tolerances as tight as ± 0.0001\"."],
+      ["Production", "Inspected parts and adjusted tool offsets during production to maintain tolerances as tight as ±0.0001 in."],
       ["Automation", "Supported implementation of automation, verifying workholding, part handling, and process repeatability."],
-      ["Quality control", "Performed QC inspections using GD&T and metrology equipment including CMMs, optical comparators, indicators and precision gaging; verified material/process certifications and traceability."],
+      ["Quality control", "Performed QC inspections using GD&T and metrology equipment including CMMs, optical comparators, indicators, and precision gaging; verified material/process certifications and traceability."],
     ],
     media: placeholderMedia(["/media/experience/preci-1.jpg", "/media/experience/preci-2.jpg"]),
     links: [{ label: "Visit Preci Manufacturing", url: "https://www.preci.com/" }],
@@ -86,15 +86,15 @@ const homepageExperience: ExperienceEntry[] = [
     date: "Sep 2025 – Present",
     role: "UVM FabLab",
     company: "Burlington, VT",
-    summary: "Lead lab operations, balancing hands-on fabrication with technical direction and final decision making.",
+    summary: "Lead lab operations, balancing hands-on fabrication with technical direction and final decision-making.",
     subroles: [
       {
         title: "FabLab Operations Manager",
         date: "Spring 2026 – Present",
         summary: "",
         sections: [
-          ["Leadership", "Lead lab operations, balancing hands-on fabrication with technical direction and final decision making."],
-          ["Process Management", "Manage preventative maintenance and SOP development across all lab equipment, and ensure operational processes are effective and efficient."],
+          ["Leadership", "Lead lab operations, balancing hands-on fabrication with technical direction and final decision-making."],
+          ["Process Management", "Manage preventive maintenance and SOP development across all lab equipment, and ensure operational processes are effective and efficient."],
           ["Team Coordination", "Lead biweekly staff meetings to review lab performance, address issues, and implement changes."],
           ["Problem Solving", "Troubleshoot and repair 3D printers and laser cutters, resolving issues escalated by technicians."],
         ],
@@ -111,7 +111,7 @@ const homepageExperience: ExperienceEntry[] = [
       },
     ],
     media: fablabExperienceMedia,
-    context: "The UVM FabLab functions as both a student makerspace and a small manufacturing job shop. Students can use the lab’s 3D printers, laser cutters, and other fabrication equipment for their own projects, while UVM students, faculty, and graduate researchers can also submit designs and specifications for the FabLab team to fabricate. Submitted fabrication requests are completed within two days.",
+    context: "The UVM FabLab functions as both a student makerspace and a small manufacturing job shop. Students can use the lab’s 3D printers, laser cutters, and other fabrication equipment for their own projects, while UVM students, faculty, and graduate researchers can also submit designs and specifications for the FabLab team to fabricate. Submitted fabrication requests are typically completed within two business days.",
     links: [{ label: "Visit the UVM FabLab Website", url: "https://www.uvm.edu/cems/uvmfablab" }],
   },
   {
@@ -140,7 +140,7 @@ const homepageExperience: ExperienceEntry[] = [
     date: "Aug 2021 – Jan 2022",
     role: "STEM Intern",
     company: "Hypertherm & Fujifilm Dimatix · Lebanon, NH",
-    context: "Selected for a semester long coop/internship program alongside 7 other local STEM students with time split evenly between two local companies. Introduction to real industry work, Lean Manufacturing & Six Sigma, engineering design process, CAD, and manual machining.",
+    context: "Selected for a semester-long co-op/internship program alongside seven other local STEM students, with time split evenly between two companies. The program introduced me to industry work, Lean Manufacturing and Six Sigma, the engineering design process, CAD, and manual machining.",
     summary: "Developed foundational CAD, manual machining, and manufacturing skills through engineering projects.",
     sections: [["Overview", "Developed foundational CAD, manual machining, and manufacturing skills through engineering projects."]],
     media: placeholderMedia(["/media/experience/stem-intern-1.jpg", "/media/experience/stem-intern-2.jpg", "/media/experience/stem-intern-3.jpg"]),
@@ -155,7 +155,7 @@ const homepageExperience: ExperienceEntry[] = [
     company: "Dartmouth College Dining Services",
     summary: "Dartmouth College Dining Services line cook and counterworker.",
     sections: [["High School Job", "Worked for one year doing primarily prep work in the main dining facility on campus, and then was promoted to line cook for another year."],
-               ["Impact", "500+ eggs fried per day, ~2% scrap rate (broken yolks)."]],
+               ["Impact", "Prepared more than 500 eggs per shift while maintaining an approximately 2% yolk-breakage rate."]],
     media: placeholderMedia(["/media/experience/dartmouth-dining-1.jpg"]),
   },
 ];
@@ -166,10 +166,10 @@ function ExperienceSection() {
 
 function Home() {
   return <main id="top"><Header />
-    <section className="intro"><div className="intro-copy"><p className="label">Mechanical Engineering · University of Vermont · Class of 2028</p><h1>Isaiah Kol</h1><p className="intro-line">MechE Junior with a background in competitive robotics, experience in lab leadership, and strong interests in <strong>aerospace, manufacturing, and robotics.</strong></p><div className="intro-actions"><a className="project-jump" href="#projects">View projects</a><a className="linkedin-button" href="https://www.linkedin.com/in/isaiahkol" target="_blank" rel="noreferrer"><span aria-hidden="true">in</span> LinkedIn</a></div></div><img className="portrait" src="/media/headshot.jpg" alt="Isaiah Kol" /></section>
+    <section className="intro"><div className="intro-copy"><p className="label">Mechanical Engineering · University of Vermont · Class of 2028</p><h1>Isaiah Kol</h1><p className="intro-line">Junior mechanical engineering student with a background in competitive robotics, experience in lab leadership, and strong interests in <strong>aerospace, manufacturing, and robotics.</strong></p><div className="intro-actions"><a className="project-jump" href="#projects">View projects</a><a className="linkedin-button" href="https://www.linkedin.com/in/isaiahkol" target="_blank" rel="noreferrer"><span aria-hidden="true">in</span> LinkedIn</a></div></div><img className="portrait" src="/media/headshot.jpg" alt="Isaiah Kol" /></section>
     <section className="projects" id="projects"><div className="section-title"><div><h2>Projects</h2></div><p></p></div><div className="project-grid">{featured.map(project => <a className={`project-card ${project.wide ? "wide" : ""}`} href={project.href} key={project.title}><div className="image-wrap"><img src={project.image} alt={project.title} />{project.active && <span className="active-project-tag">Active project</span>}<span className="view">View project</span></div><div className="project-info"><p className="kicker">{project.kicker}</p><h3>{project.title}</h3><p className="description">{project.description}</p><div className="tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div></a>)}</div></section>
     <ExperienceSection />
-    <section className="about" id="about"><div><p className="label">About</p><h2>About me</h2><div className="about-media">{["/media/family.jpg", "/media/godzilla.jpg"].map(path => <div className="about-placeholder" key={path}><img src={path} alt="Isaiah Kol outside of engineering" onError={event => { event.currentTarget.style.display = "none"; }} /><span>public{path}</span></div>)}</div></div><div><p>I’ve been using CAD software and 3D printing on my own equipment since I was about 13, and I was heavily involved in competitive robotics throughout high school. At UVM, I started as a technician and I now run the FabLab, where I manage and operate 3D printers and other fabrication tools, assist students with technical projects, and support university research.</p><p>Through these experiences, I have gained extensive firsthand experience designing mechanical systems, working within real constraints, and rapidly prototyping functional parts and assemblies.</p><p>Outside of engineering, I enjoy biking, camping, skiing, and spending time with my cat, Godzilla.</p><div className="about-links"><a href="mailto:isaiahkol37@gmail.com">Email me</a><a href="https://www.linkedin.com/in/isaiahkol" target="_blank" rel="noreferrer">LinkedIn</a></div></div></section>
+    <section className="about" id="about"><div><p className="label">About</p><h2>About me</h2><div className="about-media">{["/media/family.jpg", "/media/godzilla.jpg"].map(path => <div className="about-placeholder" key={path}><img src={path} alt="Isaiah Kol outside of engineering" onError={event => { event.currentTarget.style.display = "none"; }} /><span>public{path}</span></div>)}</div></div><div><p>I’ve been using CAD software and 3D printing on my own equipment since I was about 13, and I was heavily involved in competitive robotics throughout high school. At UVM, I started as a technician and I now help lead daily operations at the FabLab, where I manage and operate 3D printers and other fabrication tools, assist students with technical projects, and support university research.</p><p>Through these experiences, I have gained extensive firsthand experience designing mechanical systems, working within real constraints, and rapidly prototyping functional parts and assemblies.</p><p>Outside of engineering, I enjoy biking, camping, skiing, and spending time with my cat, Godzilla.</p><div className="about-links"><a href="mailto:isaiahkol37@gmail.com">Email me</a><a href="https://www.linkedin.com/in/isaiahkol" target="_blank" rel="noreferrer">LinkedIn</a></div></div></section>
     <footer><strong>Isaiah Kol</strong><p>Mechanical Engineering · Burlington, Vermont</p><a href="#top">Back to top</a></footer>
   </main>;
 }
