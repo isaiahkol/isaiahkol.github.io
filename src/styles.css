@@ -117,3 +117,13 @@ header{position:sticky;top:0;z-index:20;background:rgba(9,9,9,.95);border-bottom
 /* Breathing room between project galleries and the first content divider. */
 .detail-page .media-section{margin-bottom:40px}
 @media(max-width:800px){.detail-page .media-section{margin-bottom:30px}}
+
+
+/* Mobile-only landing portrait placement. Keep the desktop hero unchanged. */
+@media(max-width:800px){
+  .intro-copy{grid-row:1}
+  .intro .portrait{grid-row:2;width:min(220px,62vw);justify-self:center;margin:0}
+}
+@media(max-width:480px){
+  .intro .portrait{width:min(190px,62vw)}
+}
