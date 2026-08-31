@@ -127,3 +127,20 @@ header{position:sticky;top:0;z-index:20;background:rgba(9,9,9,.95);border-bottom
 @media(max-width:480px){
   .intro .portrait{width:min(190px,62vw)}
 }
+
+
+/* Clickable CSWA credential seal on the landing portrait. */
+.portrait-wrap{position:relative;width:250px;justify-self:end}
+.portrait-wrap .portrait{display:block;width:100%}
+.credential-badge{position:absolute;z-index:2;top:-28px;left:-34px;width:92px;aspect-ratio:1;filter:drop-shadow(0 5px 10px rgba(0,0,0,.55));transition:transform .18s ease}
+.credential-badge img{display:block;width:100%;height:100%}
+.credential-badge:hover,.credential-badge:focus-visible{transform:scale(1.06)}
+@media(max-width:800px){
+  .intro .portrait-wrap{grid-row:2;width:min(220px,62vw);justify-self:center;margin:0}
+  .intro .portrait{width:100%}
+  .credential-badge{top:-20px;left:-26px;width:78px}
+}
+@media(max-width:480px){
+  .intro .portrait-wrap{width:min(190px,62vw)}
+  .credential-badge{top:-17px;left:-22px;width:68px}
+}
