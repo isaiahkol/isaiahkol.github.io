@@ -144,3 +144,11 @@ header{position:sticky;top:0;z-index:20;background:rgba(9,9,9,.95);border-bottom
   .intro .portrait-wrap{width:min(190px,62vw)}
   .credential-badge{top:-17px;left:-22px;width:68px}
 }
+
+
+/* Align the internship mark with its announcement on every screen size. */
+.internship-announcement{display:flex;align-items:center;gap:18px;max-width:770px;margin:0 0 30px}
+.internship-announcement .internship-logo{display:block;flex:0 0 58px;width:58px;height:58px;object-fit:contain}
+.internship-announcement .intro-line{min-width:0;margin:0;text-align:left}
+.internship-announcement .intro-line strong{color:#FF6012}
+@media(max-width:800px){.internship-announcement{gap:14px}.internship-announcement .internship-logo{flex-basis:46px;width:46px;height:46px}}
